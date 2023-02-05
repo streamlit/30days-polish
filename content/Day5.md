@@ -1,29 +1,30 @@
-# st.write
+# Polecenie st.write
 
-`st.write` allows writing text and arguments to the Streamlit app.
-
-In addition to being able to display text, the following can also be displayed via the `st.write()` command:
+Polecenie `st.write` pozwala na wyświetlenie tekstu oraz innych treści bezpośrednio w aplikacji Streamlita. 
 
 
-- Prints strings; works like `st.markdown()`
-- Displays a Python `dict`
-- Displays `pandas` DataFrame can be displayed as a table
-- Plots/graphs/figures from `matplotlib`, `plotly`, `altair`, `graphviz`, `bokeh`
-- And more (see [st.write on API docs](https://docs.streamlit.io/library/api-reference/write-magic/st.write))
+Polecenie `st.write()` może być użyte do wyświetlenia następujących rzeczy:
 
-## What we're building?
 
-A simple app showing the various ways on how to use the `st.write()` command for displaying text, numbers, DataFrames and plots.
+- Ciągów znaków (stringów); wtedy to polecenie działa podobnie do `st.markdown()`
+- Zawartości strukur słownikowych, `dict` w Pythonie
+- Zawartości ramek danych z biblioteki `pandas` w postaci tabel
+- Wykresów/obrazów/grafik wygenerowanych przy użyciu bibliotek `matplotlib`, `plotly`, `altair`, `graphviz`, `bokeh`
+- Oraz więcej (sprawdź w [dokumentacji metody st.write](https://docs.streamlit.io/library/api-reference/write-magic/st.write))
 
-## Demo app
+## Co będziemy dziś budować?
 
-The deployed Streamlit app should look something like the one shown in the below link:
+Stworzymy prostą aplikację pokazującą różne sposoby wykorzystania polecenia `st.write()` do wyświetlenia tekstu, liczb, danych i wykresów.
+
+## Przykładowa aplikacja
+
+Po uruchomieniu Twoja aplikacja powinna wyglądać mniej więcej jak ta tutaj:
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/dataprofessor/st.write/)
 
-## Code
+## Kod
 
-Here's how to use st.write:
+Zobaczmy jak używać polecenia st.write:
 
 ```python
 import numpy as np
@@ -31,29 +32,29 @@ import altair as alt
 import pandas as pd
 import streamlit as st
 
-st.header('st.write')
+st.header('Polecenie st.write')
 
-# Example 1
+# Przykład 1
 
-st.write('Hello, *World!* :sunglasses:')
+st.write('Witaj, *Świecie!* :sunglasses:')
 
-# Example 2
+# Przykład 2
 
 st.write(1234)
 
-# Example 3
+# Przykład 3
 
 df = pd.DataFrame({
-     'first column': [1, 2, 3, 4],
-     'second column': [10, 20, 30, 40]
+     'pierwsza kolumna': [1, 2, 3, 4],
+     'druga kolumna': [10, 20, 30, 40]
      })
 st.write(df)
 
-# Example 4
+# Przykład 4
 
-st.write('Below is a DataFrame:', df, 'Above is a dataframe.')
+st.write('Poniżej znajduję ramka danych:', df, 'Powyżej znajduje się ramka danych.')
 
-# Example 5
+# Przykład 5
 
 df2 = pd.DataFrame(
      np.random.randn(200, 3),
@@ -63,54 +64,54 @@ c = alt.Chart(df2).mark_circle().encode(
 st.write(c)
 ```
 
-## Line-by-line explanation
+## Wyjaśnienie działania, linijka po linijce
 
-The very first thing to do when creating a Streamlit app is to start by importing the `streamlit` library as `st` like so:
+Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację w Streamlicie jest zaimportowanie biblioteki `streamlit` jako `st` w ten sposób:
 
 ```python
 import streamlit as st
 ```
 
-This is followed by creating a header text for the app:
+Następnie podajemy tekst nagłówka aplikacji:
 
 ```python
-st.header('st.write')
+st.header('Polecenie st.write')
 ```
 
-**Example 1**
-Its basic use case is to display text and Markdown-formatted text:
+**Przykład 1**
+Podstawowym zastosowaniem jest wyświetanie tekstu, który może zawierać dodatkowe formatowanie (jako Markdown) i emoji:
 
 ```python
-st.write('Hello, *World!* :sunglasses:')
+st.write('Witaj, *Świecie!* :sunglasses:')
 ```
 
-**Example 2**
-As mentioned above, it can also be used to display other data formats such as numbers:
+**Przykład 2**
+Można również wyświetlać liczby bez konieczności konwertowania ich do stringów.
 
 ```python
 st.write(1234)
 ```
 
-**Example 3**
-DataFrames can also be displayed as follows:
+**Przykład 3**
+Ramki danych (DataFrames) również mogą być wyświetlne w następujący sposób:
 
 ```python
 df = pd.DataFrame({
-     'first column': [1, 2, 3, 4],
-     'second column': [10, 20, 30, 40]
+     'pierwsza kolumna': [1, 2, 3, 4],
+     'druga kolumna': [10, 20, 30, 40]
      })
 st.write(df)
 ```
 
-**Example 4**
-You can pass in multiple arguments:
+**Przykład 4**
+Możesz przekazywać wiele argumentów:
 
 ```python
 st.write('Below is a DataFrame:', df, 'Above is a dataframe.')
 ```
 
-**Example 5**
-Finally, you can also display plots as well by passing it to a variable as follows:
+**Przykład 5**
+Ponadto możesz również wyświetlać wykresy w ten sposób:
 
 ```python
 df2 = pd.DataFrame(
@@ -121,25 +122,19 @@ c = alt.Chart(df2).mark_circle().encode(
 st.write(c)
 ```
 
-## Demo app
+## Kolejne kroki
 
-The deployed Streamlit app should look something like the one shown in the below link:
+Po stworzniu pierwszej streamlitowej aplikacji lokalnie, przyszedł czas na jej uruchomienie w [Społecznościowej Chmurze Streamlita](https://streamlit.io/cloud), co zostanie wyjaśnione w następnych wyzwaniach.
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/dataprofessor/st.write/)
+Ponieważ jest to Twój pierwszy tydzień nauki, udostępniamy pełny kod (powyżej) wraz z rozwiązaniem (przykładową aplikacją) bezpośrednio na tej stronie internetowej.
 
-## Next steps
+W kolejnych wyzwaniach, staraj się najpierw samodzielnie napisać kod aplikacji a potem porównać go z rozwiązaniem.
 
-Now that you have created the Streamlit app locally, it's time to deploy it to [Streamlit Community Cloud](https://streamlit.io/cloud) as will be explained soon in an upcoming challenge.
+Nie martw się jeśli utkniesz, możesz zawsze sprawdzić oficjalne rozwiązanie ponieważ wszystkie prezentowane problemy mają dołączone rozwiązanie.
 
-Because this is the first week of your challenge, we provide the full code (as shown in the code box above) and solution (the demo app) right inside this webpage.
+## Zobacz też
 
-Moving forward in the next challenges, it is recommended that you first try implementing the Streamlit app yourself.
-
-Don't worry if you get stuck, you can always take a peek at the solution.
-
-## Further reading
-
-In addition to [`st.write`](https://docs.streamlit.io/library/api-reference/write-magic/st.write), you can explore the other ways of displaying text:
+Poza poleceniem [`st.write`](https://docs.streamlit.io/library/api-reference/write-magic/st.write), możesz poczytać o innych sposobach wyświetlania tekstu:
 
 - [`st.markdown`](https://docs.streamlit.io/library/api-reference/text/st.markdown)
 - [`st.header`](https://docs.streamlit.io/library/api-reference/text/st.header)
