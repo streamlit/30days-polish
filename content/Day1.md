@@ -1,40 +1,40 @@
-# Setting up a local development environment
+# Konfigurowanie lokalnego środowiska programistycznego
 
-Before we can actually start building Streamlit apps, we will first have to setup a development environment.
+Zanim faktycznie zaczniemy tworzyć aplikacje Streamlit, najpierw będziemy musieli skonfigurować środowisko programistyczne.
 
-Let's start by installing and setting up a conda environment.
+Zacznijmy od zainstalowania i skonfigurowania środowiska Conda.
 
-## **Install conda**
-- Install `conda` by going to https://docs.conda.io/en/latest/miniconda.html and choose your operating system (Windows, Mac or Linux). 
-- Download and run the installer to install `conda`.
+## **Instalacja condy**
+- Zainstaluj `condę` wchodząc na stronę https://docs.conda.io/en/latest/miniconda.html i wyberając swój system operacyjny (Windows, Mac albo Linux). 
+- Ściągnij i uruchom instalator aby zainstalować pakiet `conda`.
 
-## **Create a new conda environment**
-Now that you have conda installed, let's create a conda environment for managing all the Python library dependencies.
+## **Stwórz nowe środowisko condy**
+Kiedy masz już zainstalowaną condę, możemy stworzyć środowisko do zarządzania wszystkimi zależnościami bibliotek Pythona.
 
-To create a new environment with Python 3.9, enter the following:
+Aby stworzyć nowe środowisko korzystające z Pythona w wersji 3.9, wpisz w konsoli:
 ```bash
 conda create -n stenv python=3.9
 ```
 
-where `create -n stenv` will create a conda environment named `stenv` and `python=3.9` will setup the conda environment with Python version 3.9.
+gdzie `create -n stenv` utworzy nowe środowisko o nazwie `stenv` a `python=3.9` skonfiguruje środowisko condy używajac Pythona w wersji 3.9.
 
-## **Activate the conda environment**
+## **Aktywuj nowo utworzone środowisko**
 
-To use a conda environment that we had just created that is named `stenv`, enter the following into the command line:
+Aby skorzystać ze środowiska condy, które właśnie stworzyliśmy i które nazwaliśmy `stenv`, wprowadź następujące polecenie w linii poleceń:
 
 ```bash
 conda activate stenv
 ```
 
-## **Install the Streamlit library**
+## **Zainstaluj bibliotekę Streamlit**
 
-It's now time to install the `streamlit` library:
+Nadszedł czas aby wreszcie zainstalować samą bibliotekę `streamlit`:
 ```bash
 pip install streamlit
 ```
 
-## **Launching the Streamlit demo app**
-To launch the Streamlit demo app (Figure 1) type:
+## **Uruchaianie przykładowej aplikacji**
+Aby uruchomić przykładową aplikację, wpisz:
 ```bash
 streamlit hello
 ```
