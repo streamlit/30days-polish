@@ -1,47 +1,38 @@
-# 30 Days Of Streamlit 🎈
+# 30 dni ze Streamlitem po polsku 🎈
 
 <img src='3AF34648-C61D-47CE-9E56-C496C5A7C240.jpeg' height=250>
 
-This is the official repo of `#30DaysOfStreamlit` — a 30-day social challenge for you to learn, build and deploy [Streamlit](https://streamlit.io) apps.
+Witaj w polskiej wersji repozytorium `#30DaysOfStreamlit` — 30-to dniowym wyzwaniu, podczas którego nauczysz się budować i wdrażać aplikacje z użyciem biblioteki [Streamlit](https://streamlit.io)!
 
-## How to participate
+## Jak wziąć udział?
 
-All you need to participate is a computer, a basic understanding of Python, and your curiosity. 🧠
+Wszystko czego potrzebujesz to komputer, podstawowa znajomośc języka Python oraz Twoja wrodzona ciekawość. 🧠
 
-A new challenge is released daily via Streamlit's [Twitter](https://twitter.com/streamlit) and [LinkedIn](https://www.linkedin.com/company/streamlit/posts/?feedView=all) accounts as well as the [`#30DaysOfStreamlit` app](https://share.streamlit.io/streamlit/30days/).
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://30dni.streamlit.app/)
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/streamlit/30days/)
+## Na czym polegają codzienne wyzwania?
 
-Complete the daily challenges, share your solutions with us on Twitter or LinkedIn, and get rewarded with cool Streamlit swag! 😎
+Najlepszym sposobem na poznanie konkretnych wyzwań jest wzięcie w nich udziału! Nasza 30-to dniowa przygoda jest podzielna na 3 poziomy trudności, tak aby uczestnicy na wszystkich poziomach umiejętności mogli znaleźć coś dla siebie:
 
-## What are the daily challenges?
-
-Find out more about the specific challenges by participating! The 30-day challenges are divided by 3 levels of difficulty to appeal to participants of all skill levels:
-
-| Beginner (Days 1-7) | Intermediate (Days 8-23) | Advanced (Days 24-30) |
+| Początkujący (Dni 1-7) | Średniozaawansowany (Dni 8-23) | Ekspert (Dni 24-30) |
 | :---        |    :----   |          :--- |
-| Set up your local and cloud coding environments, install Streamlit, and build your first Streamlit app.| Learn about a new [Streamlit command](https://docs.streamlit.io/library/api-reference) each day and use it to create and deploy a simple Streamlit app. | Learn about important topics such as session state, efficient data and memory management via caching, complex layouts, and much more.
+| Skonfiguruj środowisko do programowania lokalnie i w chmurze, zainstaluj Streamlit i zbuduj swoją pierwszą aplikację.| Poznaj jedno nowe [polecenie Streamlit](https://docs.streamlit.io/library/api-reference) dziennie aby rozwjać i wdrażać swoją aplikację. | Poznaj zaawandowane tematy, takie jak stan sesji, wydajne zarządzanie danymi i pamięcią za pomocą buforowania, złożone systemy rozmieszczenia elementów w aplikacji i wiele więcej.
 
-## Prizes
+## Dodatkowe treści
 
-If getting up to speed with the fastest and easiest way to build data apps isn't already the best summer gift, you can also win Streamlit goodies!
+- Oficjalna [aplikacja `#30DaysOfStreamlit`](https://share.streamlit.io/streamlit/30days/), na której publikowane były oryginalne zadania
+- Nasze profile na [Twitterze](https://twitter.com/streamlit) i [LinkedIn](https://www.linkedin.com/company/streamlit/posts/?feedView=all)
+- [Dokumentacja](https://docs.streamlit.io/) i [ściągawka](https://docs.streamlit.io/library/cheatsheet) (po angielsku) pomogą utwalić i pogłębić zdobytą wiedzę.
+- Nasza wspaniała [galeria](https://streamlit.io/gallery), na której znajdziej inspiracje, szablony oraz aplikacje stworzone przez społeczność
+- Nasz [blog](https://blog.streamlit.io/how-to-master-streamlit-for-data-science/) zawierający wskazówki i najnowsze informacje o bibliotece Streamlit
 
-Complete the daily challenges, share your solutions with us on [Twitter](https://twitter.com/streamlit) or [LinkedIn](https://www.linkedin.com/company/streamlit/posts/?feedView=all), and get rewarded with cool Streamlit swag! 🎁
+## Tłumaczenia
 
-## Resources
+Jeśli chcesz pomóc nam w promowaniu inicjatywy `#30DaysOfStreamlit` i świetnie znasz jakiś obcy język to przetłumacz to repozytorium i umieść link poniżej:
 
-- The official [`#30DaysOfStreamlit` app](https://share.streamlit.io/streamlit/30days/) where daily challenges are posted
-- Our [Twitter](https://twitter.com/streamlit) and [LinkedIn](https://www.linkedin.com/company/streamlit/posts/?feedView=all) feeds for daily updates
-- Streamlit [documentation](https://docs.streamlit.io/) and [cheat sheet](https://docs.streamlit.io/library/cheatsheet) for a thorough reference of Streamlit commands
-- Our awesome [Gallery](https://streamlit.io/gallery) for inspiration, templates, and community apps
-- Our [blog](https://blog.streamlit.io/how-to-master-streamlit-for-data-science/) for tips and the latest Streamlit info
-
-## Translations
-
-Want to help us expand the reach of `#30DaysOfStreamlit` and English isn't your primary language? Translate the challenges into your preferred language and link to them below!
-
-- 🇬🇧 [English](https://github.com/streamlit/30days) (Official): [![30 Days of Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://30days.streamlit.app)
-- 🇫🇷 [French](https://github.com/streamlit/30days-French) (by [Charly Wargnier](https://github.com/charlyWargnier/)): [![30 Days of Streamlit en Français!](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://30days-in-french.streamlit.app/)
-- 🇪🇸 [Español](https://github.com/streamlit/30days-spanish/) (by [Emiliano Rosso](https://github.com/arraydude)): [![30 Dias de Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://30days-in-spanish.streamlit.app/)
-- 🇵🇹 [Portuguese](https://github.com/franciscoed/30days) (by [franciscoed](https://github.com/franciscoed)): [![30 Dias de Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://30dias.streamlit.app/)
+- 🇬🇧 [Angielski](https://github.com/streamlit/30days) (Oficjalny): [![30 Days of Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://30days.streamlit.app)
+- 🇫🇷 [Francuski](https://github.com/streamlit/30days-French) (przetłumaczony przez [Charly Wargnier](https://github.com/charlyWargnier/)): [![30 Days of Streamlit en Français!](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://30days-in-french.streamlit.app/)
+- 🇪🇸 [Hiszpański](https://github.com/streamlit/30days-spanish/) (przetłumaczony przez  [Emiliano Rosso](https://github.com/arraydude)): [![30 Dias de Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://30days-in-spanish.streamlit.app/)
+- 🇵🇹 [Portugalski](https://github.com/franciscoed/30days) (przetłumaczony przez  [franciscoed](https://github.com/franciscoed)): [![30 Dias de Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://30dias.streamlit.app/)
+- 🇵🇱 [Polski](https://github.com/sfc-gh-mnowotka/30days-Polish) (przetłumaczony przez  [Michała Nowotkę](https://github.com/sfc-gh-mnowotka)): [![30 Dias de Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://30dni.streamlit.app/)
 
