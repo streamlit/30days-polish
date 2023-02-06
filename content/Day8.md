@@ -1,156 +1,157 @@
-# st.slider
+# Polecenie st.slider
 
-`st.slider` allows the display of a slider input widget.
+Polecenie `st.slider` umożliwia wyświetlanie widżetu suwaka.
 
-The following data types are supported: int, float, date, time, and datetime.
+Suwak wspiera następujsce typy danych w Pythonie: int, float, date, time, oraz datetime.
 
-## What we're building?
+## Co będziemy budować?
 
-A simple app that shows the various ways on how to accept user input by adjusting the slider widget.
+Stworzymy prostą aplikację pokazującą różne sposoby przechwytywania danych wprowadzanych przez użytkowników za pomocą suwaka. 
 
-Flow of the app:
-1. User selects value by adjusting the slider widget
-2. App prints out the selected value
+Przebieg aplikacji:
+1. Użytkownik ustawia wybraną wartość chwytając za suwak
+2. Aplikacja wyświetla ustawioną wartość
 
-## Demo app
+## Przykładowa aplikacja
 
+Po uruchomieniu Twoja aplikacja powinna wyglądać mniej więcej jak ta tutaj:
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/dataprofessor/st.slider/)
 
 
-## Code
-Here's how to use st.slider:
+## Kod
+Polecenie st.slider używamy w następujacy sposób:
 
 ```python
 import streamlit as st
 from datetime import time, datetime
 
-st.header('st.slider')
+st.header('Polecenie st.slider')
 
-# Example 1
+# Przykład 1
 
-st.subheader('Slider')
+st.subheader('Suwak')
 
-age = st.slider('How old are you?', 0, 130, 25)
-st.write("I'm ", age, 'years old')
+age = st.slider('Ile masz lat?', 0, 130, 25)
+st.write("Mam ", age, 'lat')
 
-# Example 2
+# Przykład 2
 
-st.subheader('Range slider')
+st.subheader('Suwak z zakresem')
 
 values = st.slider(
-     'Select a range of values',
+     'Wybierz zakres wartości',
      0.0, 100.0, (25.0, 75.0))
-st.write('Values:', values)
+st.write('Wybrany zakres:', values)
 
-# Example 3
+# Przykład 3
 
-st.subheader('Range time slider')
+st.subheader('Suwak z zakresem czasu')
 
 appointment = st.slider(
-     "Schedule your appointment:",
+     "Zaplanuj wizytę:",
      value=(time(11, 30), time(12, 45)))
-st.write("You're scheduled for:", appointment)
+st.write("Jesteś umówiony na:", appointment)
 
-# Example 4
+# Przykład 4
 
-st.subheader('Datetime slider')
+st.subheader('Suwak z datą i czasem')
 
 start_time = st.slider(
-     "When do you start?",
+     "Kiedy zaczynasz?",
      value=datetime(2020, 1, 1, 9, 30),
      format="MM/DD/YY - hh:mm")
-st.write("Start time:", start_time)
+st.write("Czas rozpoczęcia:", start_time)
 
 ```
 
-## Line-by-line explanation
-The very first thing to do when creating a Streamlit app is to start by importing the `streamlit` library as `st` like so:
+## Wyjaśnienie działania, linijka po linijce
+
+Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację w Streamlicie jest zaimportowanie biblioteki streamlit jako st. Przyda nam się również standardowa biblioteka do obsługi czasu i dat:
 ```python
 import streamlit as st
 from datetime import time, datetime
 ```
 
-This is followed by creating a header text for the app:
+Następnie podajemy tekst nagłówka aplikacji:
 ```python
-st.header('st.slider')
+st.header('Polecenie st.slider')
 ```
 
-**Example 1**
+**Przykład 1**
 
-Slider:
+Suwak:
 
 ```python
-st.subheader('Slider')
+st.subheader('Suwak')
 
-age = st.slider('How old are you?', 0, 130, 25)
-st.write("I'm ", age, 'years old')
+age = st.slider('Ile masz lat?', 0, 130, 25)
+st.write("Mam ", age, 'lat')
 ```
 
-As we can see, the `st.slider()` command
-is used to collect user input about the age of users.
+W tym przykładzie, polecenie `st.slider()` służy do pobrania od użytkownika informacji o jego wieku.
 
-The first input argument displays the text just above the **slider** widget asking `'How old are you?'`.
+W pierwszym argumencie tego polecenia, podajemy tekst, który zostanie wyświetlony powyżej widżetu **suwaka**. W naszym przypadku jest to pytanie `'Ile masz lat?'`.
 
-The following three integers `0, 130, 25` represents the minimum, maximum and default values, respectively.
+Kolejne trzy całkowitoliczbowe argumenty `0, 130, 25` reprezentują odpowiednio minimalną, maksymalną i domyślną wartość suwaka.
 
-**Example 2**
+**Przykład 2**
 
-Range slider:
+Suwak z zakresem:
 
 ```python
-st.subheader('Range slider')
+st.subheader('Suwak z zakresem')
 
 values = st.slider(
-     'Select a range of values',
+     'Wybierz zakres wartości',
      0.0, 100.0, (25.0, 75.0))
-st.write('Values:', values)
+st.write('Wybrany zakres:', values)
 ```
 
-The range slider allow selection of a lower and upper bound value pair.
+Suwak zakresu pozwala na określenie pary liczb: początku i końca zakresu.
 
-The first input argument displays the text just above the **range slider** widget asking `'Select a range of values'`.
+Pierwszy argument wyświetla tekst powyżej **suwaka zakresu**, w tym przykładzie będzie to `'Wybierz zakres wartości'`.
 
-The following three arguments `0.0, 100.0, (25.0, 75.0)` represents the minimum and maximum values while the last tuple denotes the default values to use as the selected lower (25.0) and upper (75.0) bound values.
+Kolejne trzy pozycyjne argumenty `0.0, 100.0, (25.0, 75.0)` reprezentują odpowiednio wartości minimalną i maksymalną, podczas gdy ostatni argument w postaci dwuelementowej krotki określa domyślne wartości początku i końca zakresu.
 
-**Example 3**
+**Przykład 3**
 
-Range time slider:
+Suwak z zakresem czasu:
 
 ```python
-st.subheader('Range time slider')
+st.subheader('Suwak z zakresem czasu')
 
 appointment = st.slider(
-     "Schedule your appointment:",
+     "Zaplanuj wizytę:",
      value=(time(11, 30), time(12, 45)))
-st.write("You're scheduled for:", appointment)
+st.write("Jesteś umówiony na:", appointment)
 ```
 
-The range time slider allows selection of a lower and upper bound value pair of datetime.
+Suwak z zakresem czasu pozwala na wybranie początka i końca zakresu będących czasem.
 
-The first input argument displays the text just above the **range time slider** widget asking `'Schedule your appointment:`.
+Pierwszy argument wyświetla tekst powyżej **suwaka z zakresem czasu**, w tym przykładzie będzie to tekst `'Zaplanuj wizytę:`.
 
-The default values for the lower and upper bound value pairs of datetime are set to 11:30 and 12:45, respectively.
+Domyślnymi wartościami dla dolnego i górnego końca zakresu będą odpowiednio godziny 11:30 oraz 12:45.
 
-**Example 4**
+**Przykład 4**
 
-Datetime slider:
+Suwak z datą i czasem:
 
 ```python
-st.subheader('Datetime slider')
+st.subheader('Suwak z datą i czasem')
 
 start_time = st.slider(
-     "When do you start?",
+     "Kiedy zaczynasz?",
      value=datetime(2020, 1, 1, 9, 30),
      format="MM/DD/YY - hh:mm")
-st.write("Start time:", start_time)
+st.write("Czas rozpoczęcia:", start_time)
 ```
 
-The datetime slider allows selection of a datetime.
+Ten suwak pozwala na ustawienie zarówno daty jak i czasu.
 
-The first input argument displays the text just above the **datetime** slider widget asking `'When do you start?'`.
+Pierwszy argument wyświetla tekst powyżej **suwaka z datą i czasem**, w tym przykładzie będzie to tekst `'Kiedy zaczynasz?'`.
 
-The default value for the datetime was set using the `value` option to be January 1, 2020 at 9:30
+Wartość domyślna dla suwaka została przekazana poprzez parametr o nazwie `value` i określona na 1-szy stycznia 2020 roku o godzinie 9:30.
 
-## Further reading
-You can also explore the following related widget:
+## Zobacz też
+Kliknij poniżej aby przeczytać o podobnym widżecie, który radzi sobie z kategoriami wartości:
 - [`st.select_slider`](https://docs.streamlit.io/library/api-reference/widgets/st.select_slider)
