@@ -1,31 +1,34 @@
-# st.line_chart
+# Polecenie st.line_chart
 
-`st.line_chart` displays a line chart.
+Polecenie `st.line_chart` wyświetla wykres liniowy.
 
-This is syntax-sugar around `st.altair_chart`. The main difference is this command uses the data's own column and indices to figure out the chart's spec. As a result this is easier to use for many "just plot this" scenarios, while being less customizable.
+Tak naprawdę to polecenie korzysta pod spodem z metody `st.altair_chart`. Główna różnica jest taka, że to polecenie nie wymaga dodatkowych parametrów do konfiguracji wykresu. Dzięki temu jest łatwiejsze w użyciu bo działa na zasadzie: „weź te dane i zrób z nich wykres”, ale jednocześnie jest mniej konfigurowalne.
 
-If `st.line_chart` does not guess the data specification correctly, try specifying your desired chart using st.altair_chart.
+Jeśli `st.line_chart` nie skonfiguruje wykresu według Twoich oczekiwań, możesz zawsze użyć polecenia `st.altair_chart` i ręcznie podać dodatkowe parametry.
 
-## What we're building?
+## Co będziemy dziś budować?
 
-A simple app for displaying a line chart.
+Prostą aplikację, która wyświetla wykres liniowy.
 
-Flow of the app:
-1. Create a `Pandas` DataFrame from numbers randomly generated via `NumPy`.
-2. Create and display the line chart via `st.line_chart()` command.
+Przebieg aplikacji:
+1. Generowanie ciągu liczb losowych za pomocą biblioteki `NumPy` i stworzenie z nich ramki danych biblioteki `Pandas`.
+2. Stworzenie i wyświetlenie wykresu liniowego przy użyciu polecenia `st.line_chart()`.
 
-## Demo app
+## Przykładowa aplikacja
 
+Po uruchomieniu Twoja aplikacja powinna wyglądać mniej więcej jak ta tutaj:
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/dataprofessor/st.line_chart/)
 
-## Code
-Here's how to use [`st.line_chart`](https://docs.streamlit.io/library/api-reference/charts/st.line_chart):
+## Kod
+
+Polecenie [`st.line_chart`](https://docs.streamlit.io/library/api-reference/charts/st.line_chart) używamy w następujacy sposób:
+
 ```python
 import streamlit as st
 import pandas as pd
 import numpy as np
 
-st.header('Line chart')
+st.header('Wykres liniowy')
 
 chart_data = pd.DataFrame(
      np.random.randn(20, 3),
@@ -35,31 +38,34 @@ st.line_chart(chart_data)
 
 ```
 
-## Line-by-line explanation
-The very first thing to do when creating a Streamlit app is to start by importing the `streamlit` library as `st` as well as other libraries like so:
+## Wyjaśnienie działania, linijka po linijce
+
+Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację w Streamlicie jest zaimportowanie biblioteki streamlit jako st. Przydadzą nam się również biblioteki `Pandas` oraz `NumPy`.
+
 ```python
 import streamlit as st
 import pandas as pd
 import numpy as np
 ```
 
-Next, we create a header text for the app:
+Następnie podajemy tekst nagłówka aplikacji:
 ```python
 st.header('Line chart')
 ```
 
-Then, we create a DataFrame of randomly generated numbers that contains 3 columns.
+Potem tworzymy ramkę danych na podstawie losowo wygenerowanych liczb i umieszczamy je w 3 kolumnach.
 ```python
 chart_data = pd.DataFrame(
      np.random.randn(20, 3),
      columns=['a', 'b', 'c'])
 ```
 
-Finally, a line chart is created by using `st.line_chart()` with the DataFrame stored in the `chart_data` variable as  the input data:
+Pora na stworzenie wykresu za pomocą polecenia `st.line_chart()` poprzez podanie ramki danych przechowywanej w zmiennej `chart_data` podanej na wejście do naszego polecenia:
+
 ```python
 st.line_chart(chart_data)
 ```
 
-## Further reading
-Read more about the following related Streamlit command from which [`st.line_chart`](https://docs.streamlit.io/library/api-reference/charts/st.line_chart) is based on:
+## Zobacz też
+Dowiedz się więcej o poleceniu, które [`st.line_chart`](https://docs.streamlit.io/library/api-reference/charts/st.line_chart) wywołuje pod spodem:
 - [`st.altair_chart`](https://docs.streamlit.io/library/api-reference/charts/st.altair_chart)
