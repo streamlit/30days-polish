@@ -1,68 +1,73 @@
-# st.checkbox
+# Polecenie st.checkbox
 
-`st.checkbox` displays a checkbox widget.
+Polecenie `st.checkbox` wyświetla widżet pola wyboru.
 
-## Demo app
+## Przykładowa aplikacja
 
+Po uruchomieniu Twoja aplikacja powinna wyglądać mniej więcej jak ta tutaj:
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/dataprofessor/st.checkbox/)
 
-## Code
-Here's how to use `st.checkbox`:
+## Kod
+Oto jak będziemy używać polecenia `st.checkbox`:
+
 ```python
 import streamlit as st
 
-st.header('st.checkbox')
+st.header('Polecenie st.checkbox')
 
-st.write ('What would you like to order?')
+st.write ('Co chciałbyś zamówić?')
 
-icecream = st.checkbox('Ice cream')
-coffee = st.checkbox('Coffee')
-cola = st.checkbox('Cola')
+icecream = st.checkbox('Lody')
+coffee = st.checkbox('Kawę')
+cola = st.checkbox('Colę')
 
 if icecream:
-     st.write("Great! Here's some more 🍦")
+     st.write("Świetnie! Oto Twoje lody 🍦")
     
 if coffee: 
-     st.write("Okay, here's some coffee ☕")
+     st.write("Super, oto Twoja kawa ☕")
 
 if cola:
-     st.write("Here you go 🥤")
+     st.write("Proszę bardzo 🥤")
 ```
 
-## Line-by-line explanation
-The very first thing to do when creating a Streamlit app is to start by importing the `streamlit` library as `st` like so:
+## Wyjaśnienie działania, linijka po linijce
+
+Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację w Streamlicie jest zaimportowanie biblioteki streamlit jako st:
+
 ```python
 import streamlit as st
 ```
 
-This is followed by creating a header text for the app:
+Następnie podajemy tekst nagłówka aplikacji:
 ```python
-st.header('st.checkbox')
+st.header('Polecenie st.checkbox')
 ```
 
-Next, we're going to ask a question via `st.write':
+Teraz zadamy użytkownikowi pytanie wyświetlając je w aplikacji poleceniem `st.write':
 ```python
-st.write ('What would you like to order?')
+st.write ('Co chciałbyś zamówić?')
 ```
 
-We're then going to provide some menu items to tick on:
+Po czym zaprezentujemy kilka opcji z menu do wyboru:
 ```python
-icecream = st.checkbox('Ice cream')
-coffee = st.checkbox('Coffee')
-cola = st.checkbox('Cola')
+icecream = st.checkbox('Lody')
+coffee = st.checkbox('Kawę')
+cola = st.checkbox('Colę')
 ```
 
-Finally, we're going to print custom text depending on which checkbox was ticked on:
+Na koniec wypiszemy tekst, w zależności o tego, które pozycje zostały wybrane:
+
 ```python
 if icecream:
-     st.write("Great! Here's some more 🍦")
+     st.write("Świetnie! Oto Twoje lody 🍦")
     
 if coffee: 
-     st.write("Okay, here's some coffee ☕")
+     st.write("Super, oto Twoja kawa ☕")
 
 if cola:
-     st.write("Here you go 🥤")
+     st.write("Proszę bardzo 🥤")
 ```  
 
-## Further reading
+## Zobacz też
 - [`st.checkbox`](https://docs.streamlit.io/library/api-reference/widgets/st.checkbox)
