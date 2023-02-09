@@ -1,20 +1,22 @@
-# st.latex
+# Polecenie st.latex
 
-`st.latex` display mathematical expressions formatted as LaTeX.
+Polecenie `st.latex` służy do wyświetlania matematycznych wzorów sformułowanych przy użyciu notacji LaTeX.
 
-## What we're building?
+## Co będziemy budować?
 
-A simple app that displays a mathematical equation using LaTeX syntax via the `st.latex` command.
+Prostą aplikację, która wyświetla matematyczne rówania korzystając ze składni LaTeXa przy użyciu polecenia `st.latex`.
 
-## Demo app
+## Przykładowa aplikacja
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/dataprofessor/st.latex/)
 
-## Code
-Here's how to use `st.latex`:
+## Kod
+
+Oto jak uzywać polecenia `st.latex`:
+
 ```python
 import streamlit as st
 
-st.header('st.latex')
+st.header('Polecenie st.latex')
 
 st.latex(r'''
      a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} =
@@ -23,18 +25,20 @@ st.latex(r'''
      ''')
 ```
 
-## Line-by-line explanation
-The very first thing to do when creating a Streamlit app is to start by importing the `streamlit` library as `st` like so:
+## Wyjaśnienie działania, linijka po linijce
+
+Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację w Streamlicie jest zaimportowanie biblioteki streamlit jako st.
+
 ```python
 import streamlit as st
 ```
 
-This is followed by creating a header text for the app:
+Następnie podajemy tekst nagłówka aplikacji:
 ```python
-st.header('st.latex')
+st.header('Polecenie st.latex')
 ```
 
-Next, we're displaying the mathematical equation via `st.latex`:
+Na koniec wyświetlimy matematyczne równanie, wykorzystując polecenie `st.latex`:
 ```python
 st.latex(r'''
      a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} =
@@ -43,5 +47,5 @@ st.latex(r'''
      ''')
 ```
 
-## References
-- Read more about [`st.latex`](https://docs.streamlit.io/library/api-reference/text/st.latex) in the Streamlit API Documentation.
+## Zobacz też
+- Przeczytaj więce na temat polecenia [`st.latex`](https://docs.streamlit.io/library/api-reference/text/st.latex) w oficlajnej dokumentacji Streamlita.
