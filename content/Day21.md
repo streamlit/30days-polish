@@ -1,21 +1,22 @@
-# st.progress
+# Polecenie st.progress
 
-`st.progress` displays a progress bar that updates graphically as the iteration progresses.
+Polecenie `st.progress` wyświetla pasek postępu, który aktualizuje się w kolejnych iteracjach.
 
-## Demo app
+## Przykładowa aplikacja
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/dataprofessor/st.progress/)
 
-## Code
-Here's how to use `st.progress`:
+## Kod
+
+Oto jak używać polecenia `st.progress`:
 ```python
 import streamlit as st
 import time
 
-st.title('st.progress')
+st.title('Polecenie st.progress')
 
-with st.expander('About this app'):
-     st.write('You can now display the progress of your calculations in a Streamlit app with the `st.progress` command.')
+with st.expander('O tej aplikacji'):
+     st.write('Możesz teraz wyświetlić postęp obliczeń za pomocą polecenia `st.progress`.')
 
 my_bar = st.progress(0)
 
@@ -26,25 +27,27 @@ for percent_complete in range(100):
 st.balloons()
 ```
 
-## Line-by-line explanation
-The very first thing to do when creating a Streamlit app is to start by importing the `streamlit` library as `st` along with the `time` library like so:
+## Wyjaśnienie działania, linijka po linijce
+
+Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację w Streamlicie jest zaimportowanie biblioteki streamlit jako st. Przyda nam się również standardowa biblioteka do obsługi czasu:
 ```python
 import streamlit as st
 import time
 ```
 
-Next, we create a title text for the app:
+Następnie podajemy tekst nagłówka aplikacji:
 ```python
-st.title('st.progress')
+st.title('Polecenie st.progress')
 ```
 
-An **About box** is created using `st.expander` and description is displayed via `st.write`:
+Informacja **O tej aplikacji** jest stworzona za pomocą polecenia `st.expander` a opis jest wyświetlony przy użyciu polecenie `st.write`:
 ```python
-with st.expander('About this app'):
-     st.write('You can now display the progress of your calculations in a Streamlit app with the `st.progress` command.')
+with st.expander('O tej aplikacji'):
+     st.write('Możesz teraz wyświetlić postęp obliczeń za pomocą polecenia `st.progress`.')
 ```
 
-Finally, we define a progress bar and instantiate it with a starting value of `0`. Then, a `for` loop will iterate from `0` until `100` is reached. In each iteration, we use `time.sleep(0.05)` to allow the app to wait for `0.05` before adding a value of `1` to the `my_bar` progress bar and in doing so the graphical display of the bar increases with each iteration.
+Na koniec definiujemy pasek postępu i inicjujemy go początkową wartością `0`. Następnie, w każdym obiegu pętli używamy wyrażenia `time.sleep(0.05)` aby zaczekać `0.05` sekundy przed zwiększeniem postępu paska `my_bar` o 1, dzięki czemu zawartość paska zaktualizuje się. W sumie pętla wykona się 100 razy, doprowadzając postęp paska do końca.
+
 ```python
 my_bar = st.progress(0)
 
@@ -55,5 +58,5 @@ for percent_complete in range(100):
 st.balloons()
 ```
 
-## Further reading
+## Zobacz też
 - [`st.progress`](https://docs.streamlit.io/library/api-reference/status/st.progress)
