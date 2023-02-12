@@ -1,23 +1,24 @@
-# Customizing the theme of Streamlit apps
+# Dostosowywanie wyglądu aplikacji
 
-We can customize the theme by adjusting parameters in `config.toml`, which is a configuration file stored in the same folder as the app in the `.streamlit` folder.
+Używajać parametrów w pliku `config.toml`, można w łatwy sposób skonfigurować wizualne aspekty aplikacji. Plik `config.toml` znajduje się w ukrytym podkatalogu o nazwie `.streamlit` wewnętrz tego samego katalogu, w którym znajduje się aplikacja.
 
-## What we're building?
+## Co będziemy budować?
 
-A simple app that shows the result of our theme customization. This is made possible by customizing the HTML HEX code inside the [`.streamlit/config.toml`](https://github.com/dataprofessor/streamlit-custom-theme/blob/master/.streamlit/config.toml) file.
+Prostą aplikację, która pokazuje efekty dostosowania graficznego motywu aplikacji. Można to zrobić poprzez zmianę heksadecymalnych kodów kolorów wewnątrz pliku [`.streamlit/config.toml`](https://github.com/dataprofessor/streamlit-custom-theme/blob/master/.streamlit/config.toml).
 
-## Demo app
+
+## Przykładowa aplikacja
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/dataprofessor/streamlit-custom-theme/)
 
-## Code
-Here's the code to the [`streamlit_app.py`](https://github.com/dataprofessor/streamlit-custom-theme/blob/master/streamlit_app.py) file:
+## Kod
+Oto kod, który należy umieścić w pliku [`streamlit_app.py`](https://github.com/dataprofessor/streamlit-custom-theme/blob/master/streamlit_app.py) file:
 ```python
 import streamlit as st
 
-st.title('Customizing the theme of Streamlit apps')
+st.title('Dostosowywanie wyglądu aplikacji')
 
-st.write('Contents of the `.streamlit/config.toml` file of this app')
+st.write('Zawartość pliku `.streamlit/config.toml` dla tej aplikacji')
 
 st.code("""
 [theme]
@@ -28,11 +29,11 @@ textColor="#FFFFFF"
 font="monospace"
 """)
 
-number = st.sidebar.slider('Select a number:', 0, 10, 5)
-st.write('Selected number from slider widget is:', number)
+number = st.sidebar.slider('Wybierz liczbę:', 0, 10, 5)
+st.write('Twoja wybrana liczna to:', number)
 ```
 
-Here's the code to the [`.streamlit/config.toml`](https://github.com/dataprofessor/streamlit-custom-theme/blob/master/.streamlit/config.toml) file:
+Oto zawartość pliku [`.streamlit/config.toml`](https://github.com/dataprofessor/streamlit-custom-theme/blob/master/.streamlit/config.toml):
 ```python
 [theme]
 primaryColor="#F39C12"
@@ -42,20 +43,21 @@ textColor="#FFFFFF"
 font="monospace"
 ```
 
-## Line-by-line explanation
-The very first thing to do when creating a Streamlit app is to start by importing the `streamlit` library as `st` like so:
+## Wyjaśnienie działania, linijka po linijce
+Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację w Streamlicie jest zaimportowanie biblioteki streamlit jako st. 
 ```python
 import streamlit as st
 ```
+Następnie podajemy tekst nagłówka aplikacji:
 
-This is followed by creating a title text for the app:
 ```python
-st.title('Theming with config.toml')
+st.title('Dostosowywanie wyglądu aplikacji')
 ```
 
-Next, we're going to show the contents of the `.streamlit/config.toml` file which we'll first display a note of this via `st.write` followed by the actual code via `st.code`:
+Potem wyświetlimy zawartość pliku `.streamlit/config.toml` do czego użyjemy polcenia `st.write` aby wyświetlić informację na temat pliku, oraz polecenia `st.code` aby wyświetlić właściwy kod:
+
 ```python
-st.write('Contents of the ./streamlit/config.toml file of this app')
+st.write('Zawartość pliku `.streamlit/config.toml` dla tej aplikacji')
 
 st.code("""
 [theme]
@@ -67,20 +69,20 @@ font="monospace"
 """)
 ```
 
-Finally, we're creating a slider widget in the sidebar followed by displaying the selected number:
+Na koniec stworzymy wiżdżet suwaka oraz wyświetlimy jego bieżącą wartość:
 ```python
 number = st.sidebar.slider('Select a number:', 0, 10, 5)
 st.write('Selected number from slider widget is:', number)
 ```
 
-Let's now take a look at the custom colors that we've used in this app, which is specified in the `.streamlit/config.toml` file:
-- `primaryColor="#F39C12"` - This sets the primary color to orange. Notice the orange colors in the slider widget.
-- `backgroundColor="#2E86C1"` - This sets the background color to blue. Notice the main panel has a blue background color.
-- `secondaryBackgroundColor="#AED6F1"` - This sets the secondary background color to dark gray. Notice the gray background color of the sidebar and the background color of the code box in the main panel.
-- `textColor="#FFFFFF"` - The text color is set to white.
-- `font="monospace"` - This sets the font to monospace.
+Przyjrzyjmy się różnym kolorom, które określiliśmy dla naszej aplikacji poprzez ustawienie ich wewnątrz pliku `.streamlit/config.toml`
+- `primaryColor="#F39C12"` - Tutaj ustawiamy główny kolor aplikacji na pomarańczowy. Zwróć uwagę na pomarańczowe kolory wiżdżetu suwaka.
+- `backgroundColor="#2E86C1"` - Tu ustawiamy kolor tła na niebieski. Zauważ, że tło głównego panelu jest teraz niebieskie.
+- `secondaryBackgroundColor="#AED6F1"` - W tym miejscu ustawiamy drugi kolor tła na ciemnoszary. Dzięki temu panel poczny oraz pole kodu mają teraz ciemnoszare tła. 
+- `textColor="#FFFFFF"` - Kolor tekstu jest ustawiony na biały.
+- `font="monospace"` - Ta opcja spowoduje wybranie czcionki o stałej szerokości.
 
 
-## Further reading
-- [Theming](https://docs.streamlit.io/library/advanced-features/theming)
-- [HTML Color Codes](https://htmlcolorcodes.com/) is a great tool for selecting colors of interest.
+## Zobacz też
+- [Ostylowanie aplikacji](https://docs.streamlit.io/library/advanced-features/theming)
+- [Kody kolorów w HTML](https://htmlcolorcodes.com/) jest doskonałym narzędziem do wybierania interesujących kolorów.
