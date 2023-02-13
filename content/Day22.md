@@ -1,136 +1,145 @@
-# st.form
+# Polecenie st.form
 
-`st.form` creates a form that batches elements together with a "Submit" button.
+Polecenie `st.form` tworzy formularz, który grupuje elementy wraz z przyciskiem Wyślij ("Submit").
 
-Typically, whenever a user interacts with a widget, the Streamlit app is rerun.
+Zazwyczaj kiedy użytkownik wchodzi w interkację z jakimkolwiek widżetem na stronie, cały kod aplikacji Streamlita jest wykonywany od początku.
 
-A form is a container that visually groups other elements and widgets together, and contains a Submit button. Herein, a user can interacts with one or more widgets for as many times as they like without causing a rerun. Finally, when the form's Submit button is pressed, all widget values inside the form will be sent to Streamlit in a single batch.
+Formularz jest specjalnym kontenerem, który wizualnie grupuje inne elementy i widżety oraz zawiera przycisk do wysłania danych. W tym przypadku użytkownik może dowolnie modyfikować wartości ktoregokolwiek widżetu wchodzącego w skład formularza nie powodując przy tym ponownego wykonania aplikacji. Dopiero kiedy użytkownik wciśnie przycisk, wszystkie dane z formularza zostaną zebrane i wysłane na serwer celem przetworzenia.
 
-To add elements to a form object, you can use the `with` notation (preferred) or you could use it as an object notation by just calling methods directly on the form (by first assigning it to a variable and subsequently applying Streamlit methods on it). See in the example app.
+Aby dodać elementy do formularza można użyć wyrażenia `with` (co jest zalecane) albo można też dodać elementy bezośrednio do obiektu formularza poprzez wykonywanie zdefiniowanych na nim metod. Poniżej zobaczymy przykłady obu notacji.
 
-Forms have a few constraints:
-- Every form must contain a `st.form_submit_button`.
-- `st.button` and `st.download_button` cannot be added to a form.
-- Forms can appear anywhere in your app (sidebar, columns, etc), but they cannot be embedded inside other forms.
+Formularze mają kilka ograniczeń:
+- każdy formularz musi zawierać specjalny typ przycisku `st.form_submit_button`.
+- Inne rodzaje przycisków, takie jak `st.button` czy `st.download_button` nie mogą być dodane do formularza.
+- Formularze mogą być dodane do aplikacji wszędzie (w panelu bocznym, kolumnach, itd) ale nie mogą zawierać w sobie innych formularzy.
 
-For more information about forms, check out our [blog post](https://blog.streamlit.io/introducing-submit-button-and-forms/).
+Możesz dowiedzieć się więcej o formularzach czytając naszego [bloga](https://blog.streamlit.io/introducing-submit-button-and-forms/).
 
-## Demo app
+
+## Przykładowa aplikacja
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/dataprofessor/st.form/)
 
-## Code
-Here's how to use `st.form`:
+## Kod
+
+Oto przykład użycia polecenia `st.form`:
+
 ```python
 import streamlit as st
 
-st.title('st.form')
+st.title('Polecenie st.form')
 
-# Full example of using the with notation
-st.header('1. Example of using `with` notation')
-st.subheader('Coffee machine')
+# Pełny przykład z wykorzystaniem wyrażenia "with"
+st.header('1. Przykład użycia notacji ze słowem kluczowym `with`')
+st.subheader('Ekspres do kawy')
 
 with st.form('my_form'):
-    st.subheader('**Order your coffee**')
+    st.subheader('**Zamów kawę**')
     
-    # Input widgets
-    coffee_bean_val = st.selectbox('Coffee bean', ['Arabica', 'Robusta'])
-    coffee_roast_val = st.selectbox('Coffee roast', ['Light', 'Medium', 'Dark'])
-    brewing_val = st.selectbox('Brewing method', ['Aeropress', 'Drip', 'French press', 'Moka pot', 'Siphon'])
-    serving_type_val = st.selectbox('Serving format', ['Hot', 'Iced', 'Frappe'])
-    milk_val = st.select_slider('Milk intensity', ['None', 'Low', 'Medium', 'High'])
-    owncup_val = st.checkbox('Bring own cup')
+    # Wejściowe widżety
+    coffee_bean_val = st.selectbox('Rodzaj ziaren', ['Arabica', 'Robusta'])
+    coffee_roast_val = st.selectbox('Stopień palenia', ['Jasny', 'Średni', 'Ciemny'])
+    brewing_val = st.selectbox('Metoda parzenia', ['Aeropress', 'Przelew', 'French press', 'Kawiarka', 'Siphon'])
+    serving_type_val = st.selectbox('Sposób podania', ['Gorąca', 'Z lodem', 'Frappe'])
+    milk_val = st.select_slider('Ilość mleka', ['Bez', 'Mała', 'Średnia', 'Duża'])
+    owncup_val = st.checkbox('Własny kubek')
     
-    # Every form must have a submit button
-    submitted = st.form_submit_button('Submit')
+    # Każdy formularz musi posiadać przycisk do wysłania
+    submitted = st.form_submit_button('Wyślij')
 
 if submitted:
     st.markdown(f'''
-        ☕ You have ordered:
-        - Coffee bean: `{coffee_bean_val}`
-        - Coffee roast: `{coffee_roast_val}`
-        - Brewing: `{brewing_val}`
-        - Serving type: `{serving_type_val}`
-        - Milk: `{milk_val}`
-        - Bring own cup: `{owncup_val}`
+        ☕ Zamówiono:
+        - Rodzaj ziaren: `{coffee_bean_val}`
+        - Stopień palenia: `{coffee_roast_val}`
+        - Metoda parzenia: `{brewing_val}`
+        - Sposób podania: `{serving_type_val}`
+        - Ilość mleka: `{milk_val}`
+        - Własny kubek: `{owncup_val}`
         ''')
 else:
-    st.write('☝️ Place your order!')
+    st.write('☝️ Złóż zamówienie!')
 
 
-# Short example of using an object notation
-st.header('2. Example of object notation')
+# Skrócony przykład użycia notacji obiektowej
+st.header('2. Przykład użycia notacji obiektowej')
 
 form = st.form('my_form_2')
-selected_val = form.slider('Select a value')
-form.form_submit_button('Submit')
+selected_val = form.slider('Wybierz wartość')
+form.form_submit_button('Wyślij')
 
-st.write('Selected value: ', selected_val)
+st.write('Wybrana wartość: ', selected_val)
 ```
 
-## Line-by-line explanation
-The very first thing to do when creating a Streamlit app is to start by importing the `streamlit` library as `st` like so:
+## Wyjaśnienie działania, linijka po linijce
+
+Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację w Streamlicie jest zaimportowanie biblioteki streamlit jako st.
 ```python
 import streamlit as st
 ```
 
-This is followed by creating a title text for the app:
+Następnie podajemy tekst nagłówka aplikacji:
 ```python
-st.title('st.form')
+st.title('Polecenie st.form')
 ```
 
-### First example
-Let's start with the first example, here we'll apply the `st.form` command via the `with` notation. Inside the form, we'll start with writing a subheader `Order your coffee` then create several input widgets (`st.selectbox`, `st.select_slider` and `st.checkbox`) to collect information about the coffee order. Finally, a submit button is created via the `st.form_submit_button` command, which when clicked on will send all user input as a single batch of information to the app for processing.
+### Pierwszy przykład
+
+Zacznijmy od przykładu, w którym zastosujemy polecenie `st.form` w połączeniu z wyrażeniem `with`. Tworzenie formularza rozpoczniemy od umieszczenia w jego wnętrzu nagłówka z napisem `Zamów kawę` a następnie dodamy do niego kilka widżetów (takich jak `st.selectbox`, `st.select_slider` czy `st.checkbox`) aby pobrać infomracje na temat zamawianej kawy. Na koniec dodamy jeszcze przycisk do przesyłania danych, używając polecenia `st.form_submit_button`. Kiedy przycisk zostanie wciśnięty, wszystkie dane zostaną przesłane na serwer aby je przetworzyć.
+
 ```python
-# Full example of using the with notation
-st.header('1. Example of using `with` notation')
-st.subheader('Coffee machine')
+# Pełny przykład z wykorzystaniem wyrażenia "with"
+st.header('1. Przykład użycia notacji ze słowem kluczowym `with`')
+st.subheader('Ekspres do kawy')
 
 with st.form('my_form'):
-    st.subheader('**Order your coffee**')
-
-    # Input widgets
-    coffee_bean_val = st.selectbox('Coffee bean', ['Arabica', 'Robusta'])
-    coffee_roast_val = st.selectbox('Coffee roast', ['Light', 'Medium', 'Dark'])
-    brewing_val = st.selectbox('Brewing method', ['Aeropress', 'Drip', 'French press', 'Moka pot', 'Siphon'])
-    serving_type_val = st.selectbox('Serving format', ['Hot', 'Iced', 'Frappe'])
-    milk_val = st.select_slider('Milk intensity', ['None', 'Low', 'Medium', 'High'])
-    owncup_val = st.checkbox('Bring own cup')
+    st.subheader('**Zamów kawę**')
     
-    # Every form must have a submit button.
-    submitted = st.form_submit_button('Submit')
+    # Wejściowe widżety
+    coffee_bean_val = st.selectbox('Rodzaj ziaren', ['Arabica', 'Robusta'])
+    coffee_roast_val = st.selectbox('Stopień palenia', ['Jasny', 'Średni', 'Ciemny'])
+    brewing_val = st.selectbox('Metoda parzenia', ['Aeropress', 'Przelew', 'French press', 'Kawiarka', 'Siphon'])
+    serving_type_val = st.selectbox('Sposób podania', ['Gorąca', 'Z lodem', 'Frappe'])
+    milk_val = st.select_slider('Ilość mleka', ['Bez', 'Mała', 'Średnia', 'Duża'])
+    owncup_val = st.checkbox('Własny kubek')
+    
+    # Każdy formularz musi posiadać przycisk do wysłania
+    submitted = st.form_submit_button('Wyślij')
 ```
 
-Next, we'll add the logic of what happen's after the submit button is clicked on. By default, whenever the Streamlit app is loaded the `else` statement will be run and we see a message `☝️ Place your order!`. Whereas upon clicking on the submit button, all user provided input via the various widgets are stored in several variables (e.g. `coffee_bean_val`, `coffee_roast_val`, etc.) and printed out via the `st.markdown` command with the help of f-string.
+Następnie dodamy logikę, która obsłuży przetewarzanie przesłanych danych. Domyślnie, kiedy aplikacja załaduje się po raz pierwszy, zostanie wykonany blok kodu poniżej słowa kluczowego `else` i zobaczymy komunikat o treści `☝️ Złóż zamówienie!`. Natomiast po przesłaniu danych z formularza poprzez kliknięcie przycisku `Wyślij`, dane wybrane przez użytkownika za pomocą różnych widżetów zostaną przypisane do kilku zmiennych (np. `coffee_bean_val`, `coffee_roast_val`, itd.) i zostanie wywołane polecenie `st.markdown`, które przy użyciu f-stringa wypisze szczegóły zamówienia.
+
 ```python
 if submitted:
     st.markdown(f'''
-        ☕ You have ordered:
-        - Coffee bean: `{coffee_bean_val}`
-        - Coffee roast: `{coffee_roast_val}`
-        - Brewing: `{brewing_val}`
-        - Serving type: `{serving_type_val}`
-        - Milk: `{milk_val}`
-        - Bring own cup: `{owncup_val}`
+        ☕ Zamówiono:
+        - Rodzaj ziaren: `{coffee_bean_val}`
+        - Stopień palenia: `{coffee_roast_val}`
+        - Metoda parzenia: `{brewing_val}`
+        - Sposób podania: `{serving_type_val}`
+        - Ilość mleka: `{milk_val}`
+        - Własny kubek: `{owncup_val}`
         ''')
 else:
-    st.write('☝️ Place your order!')
+    st.write('☝️ Złóż zamówienie!')
 ```
 
 
-### Second example
-Let's now proceed to the second example on using the `st.form` as an object notation. Here, the `st.form` command is assigned to the `form` variable. Subsequently, various Streamlit commands such as `slider` or `form_submit_button` is applied on the `form` variable.
+### Drugi przykład
+Zobaczmy teraz jak można używać polecenia `st.form` w połączeniu z notacją obiektową. W tym przykładzie, rezultat polecenia `st.form`  jest przypisany do zmiennej o nazwie `form`. Następnie różne polecenia Streamlita, takie jak `slider` czy `form_submit_button` są wywoływane na zmiennej `form`.
+
+
 ```python
-# Short example of using an object notation
-st.header('2. Example of object notation')
+# Skrócony przykład użycia notacji obiektowej
+st.header('2. Przykład użycia notacji obiektowej')
 
 form = st.form('my_form_2')
-selected_val = form.slider('Select a value')
-form.form_submit_button('Submit')
+selected_val = form.slider('Wybierz wartość')
+form.form_submit_button('Wyślij')
 
-st.write('Selected value: ', selected_val)
+st.write('Wybrana wartość: ', selected_val)
 ```
 
-## Further reading
+## Zobacz też
 - [`st.form`](https://docs.streamlit.io/library/api-reference/control-flow/st.form)
-- [Introducing Submit button and Forms](https://blog.streamlit.io/introducing-submit-button-and-forms/)
+- [Wprowadzenie do formularzy](https://blog.streamlit.io/introducing-submit-button-and-forms/)
