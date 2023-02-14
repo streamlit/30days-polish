@@ -1,99 +1,102 @@
-# st.experimental_get_query_params
+# Polecenie st.experimental_get_query_params
 
-`st.experimental_get_query_params` allows the retrieval of query parameters directly from the URL of the user's browser.
+Polecenie `st.experimental_get_query_params` umożliwia przechwycenie parametrów żądania bezpośrednio z adresu URL przeglądarki użytkownika.
 
-## Demo app
+## Przykładowa aplikacja
 
-1. The following link loads the demo app with no query parameters (notice the error message):
+1. Poniższy link prowadzi do przykładowej aplikacji beż jakichkolwiek paramterów w adresie URL żądania (zwróć uwagę na komunikat o błędach):
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/dataprofessor/st.experimental_get_query_params/)
 
-2. The following link loads the demo app with query parameters (no error message here):
+2. Poniższy link ładuje przykładową aplikację z parametrami żądania osadzonymi w adresie URL (tutaj nie ma już błędów): 
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](http://share.streamlit.io/dataprofessor/st.experimental_get_query_params/?firstname=Jack&surname=Beanstalk)
 
-## Code
-Here's how to use `st.experimental_get_query_params`:
+## Kod
+
+Oto jak używać polecenia `st.experimental_get_query_params`:
 ```python
 import streamlit as st
 
-st.title('st.experimental_get_query_params')
+st.title('Polecenie st.experimental_get_query_params')
 
-with st.expander('About this app'):
-  st.write("`st.experimental_get_query_params` allows the retrieval of query parameters directly from the URL of the user's browser.")
+with st.expander('O tej aplikacji'):
+  st.write("`st.experimental_get_query_params` umożliwia przechwycenie parametrów żądania bezpośrednio z adresu URL przeglądarki użytkownika.")
 
-# 1. Instructions
-st.header('1. Instructions')
+# 1. Instrukcje
+st.header('1. Instrukcje')
 st.markdown('''
-In the above URL bar of your internet browser, append the following:
+Dodaj na koniec obecnego adresu URL, który widzisz w pasku przeglądarki powyżej następującą treść:
 `?name=Jack&surname=Beanstalk`
-after the base URL `http://share.streamlit.io/dataprofessor/st.experimental_get_query_params/`
-such that it becomes 
+zaraz po głównej części `http://share.streamlit.io/dataprofessor/st.experimental_get_query_params/`
+więc cały adres wygląda następująco: 
 `http://share.streamlit.io/dataprofessor/st.experimental_get_query_params/?firstname=Jack&surname=Beanstalk`
 ''')
 
 
-# 2. Contents of st.experimental_get_query_params
-st.header('2. Contents of st.experimental_get_query_params')
+# 2. Zawartość st.experimental_get_query_params
+st.header('2. Zawartość st.experimental_get_query_params')
 st.write(st.experimental_get_query_params())
 
 
-# 3. Retrieving and displaying information from the URL
-st.header('3. Retrieving and displaying information from the URL')
+# 3. Pobieranie i wyświetlanie informacji z adresu URL
+st.header('3. Pobieranie i wyświetlanie informacji z adresu URL')
 
 firstname = st.experimental_get_query_params()['firstname'][0]
 surname = st.experimental_get_query_params()['surname'][0]
 
-st.write(f'Hello **{firstname} {surname}**, how are you?')
+st.write(f'Cześć **{firstname} {surname}**, jak się masz?')
 ```
 
-## Line-by-line explanation
-The very first thing to do when creating a Streamlit app is to start by importing the `streamlit` library as `st` like so:
+## Wyjaśnienie działania, linijka po linijce
+Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację w Streamlicie jest zaimportowanie biblioteki streamlit jako st. 
 ```python
 import streamlit as st
 ```
 
-Next, we'll give the app a title:
+Następnie podajemy tekst nagłówka aplikacji:
 ```python
-st.title('st.experimental_get_query_params')
+st.title('Polecenie st.experimental_get_query_params')
 ```
 
-Let's also add an About drop-down box:
+Dodajmy też rozszerzalną sekcję z informacjami o tej aplikacji:
 ```python
-with st.expander('About this app'):
-  st.write("`st.experimental_get_query_params` allows the retrieval of query parameters directly from the URL of the user's browser.")
+with st.expander('O tej aplikacji'):
+  st.write("`st.experimental_get_query_params` umożliwia przechwycenie parametrów żądania bezpośrednio z adresu URL przeglądarki użytkownika.")
 ```
 
-Then, we'll provide instructions to visitors of the app on how they can pass query parameters directly to the URL:
+Następnie wytłumaczymy gościom naszej strony w jaki sposób mogą przekazywać parametry do adresu URL:
 ```python
-# 1. Instructions
-st.header('1. Instructions')
+# 1. Instrukcje
+st.header('1. Instrukcje')
 st.markdown('''
-In the above URL bar of your internet browser, append the following:
+Dodaj na koniec obecnego adresu URL, który widzisz w pasku przeglądarki powyżej następującą treść:
 `?name=Jack&surname=Beanstalk`
-after the base URL `http://share.streamlit.io/dataprofessor/st.experimental_get_query_params/`
-such that it becomes 
+zaraz po głównej części `http://share.streamlit.io/dataprofessor/st.experimental_get_query_params/`
+więc cały adres wygląda następująco: 
 `http://share.streamlit.io/dataprofessor/st.experimental_get_query_params/?firstname=Jack&surname=Beanstalk`
 ''')
 ```
 
-Subsequently, we'll display the contents of the `st.experimental_get_query_params` command.
+Potem wyświetlimy zawartość rezultatu działania polecenia `st.experimental_get_query_params`.
+
 ```python
-# 2. Contents of st.experimental_get_query_params
-st.header('2. Contents of st.experimental_get_query_params')
+# 2. Zawartość st.experimental_get_query_params
+st.header('2. Zawartość st.experimental_get_query_params')
 st.write(st.experimental_get_query_params())
 ```
 
-Finally, we'll select and display selective information from the URL's query parameter:
+Na koniec przechwycimy i wyświetlimy wybrane informacje przekazane przez parametry zapytania w adresie URL:
+
 ```python
-# 3. Retrieving and displaying information from the URL
-st.header('3. Retrieving and displaying information from the URL')
+# 3. Pobieranie i wyświetlanie informacji z adresu URL
+st.header('3. Pobieranie i wyświetlanie informacji z adresu URL')
 
 firstname = st.experimental_get_query_params()['firstname'][0]
 surname = st.experimental_get_query_params()['surname'][0]
 
-st.write(f'Hello **{firstname} {surname}**, how are you?')
+st.write(f'Cześć **{firstname} {surname}**, jak się masz?')
 ```
 
-## Further reading
+## Zobacz też
 - [`st.experimental_get_query_params`](https://docs.streamlit.io/library/api-reference/utilities/st.experimental_get_query_params)
