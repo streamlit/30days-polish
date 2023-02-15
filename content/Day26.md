@@ -1,100 +1,133 @@
-# How to use API by building the Bored API app
+# Jak korzystać z API budując aplikację Bored API
 
-The Bored API app suggests fun things for you to do when you are bored!
+Aplikacja Bored API sugeruje ciekawe rzeczy, które możesz zrobić kiedy Ci się nudzi!
 
-Technically, it also demonstrates the usage of APIs from within a Streamlit app.
 
-## Demo app
+Z technicznego punktu widzenia, pokazuje również użycie API z poziomu aplikacji Streamlita.
+
+## Przykładowa aplikacja
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/dataprofessor/bored-api-app/)
 
-## Code
-Here's how to implement the Bored-API app:
+## Kod
+
+Oto jak zaimpementować aplikację Bored-API:
+
 ```python
 import streamlit as st
 import requests
 
-st.title('🏀 Bored API app')
+st.title('🏀 Aplikacja Bored API')
 
-st.sidebar.header('Input')
-selected_type = st.sidebar.selectbox('Select an activity type', ["education", "recreational", "social", "diy", "charity", "cooking", "relaxation", "music", "busywork"])
+st.sidebar.header('Wejście')
+selected_type = st.sidebar.selectbox('Wybierz typ aktywności', ["edukacja", "rekreacja", "społeczność", "zrób to sam", "dobroczynność", "gotowanie", "relaks", "muzyka", "zabijanie czasu"])
 
-suggested_activity_url = f'http://www.boredapi.com/api/activity?type={selected_type}'
+activity_translations = {
+   "edukacja": "education",
+   "rekreacja": "recreational",
+   "społeczność": "social",
+   "zrób to sam": "diy",
+   "dobroczynność": "charity",
+   "gotowanie": "cooking",
+   "relaks": "relaxation",
+   "muzyka":  "music",
+   "zabijanie czasu": "busywork"
+}
+
+suggested_activity_url = f'http://www.boredapi.com/api/activity?type={activity_translations[selected_type]}'
 json_data = requests.get(suggested_activity_url)
 suggested_activity = json_data.json()
 
 c1, c2 = st.columns(2)
 with c1:
-  with st.expander('About this app'):
-    st.write('Are you bored? The **Bored API app** provides suggestions on activities that you can do when you are bored. This app is powered by the Bored API.')
+  with st.expander('O tej aplikacji'):
+    st.write('Czujesz się znudzony? Aplikacja **Bored API** potrafi podpowiedzieć zajęcia, dzięki którym zwalczysz nudę. Ta aplikacja korzysta z Bored API.')
 with c2:
-  with st.expander('JSON data'):
+  with st.expander('Dane w formacie JSON'):
     st.write(suggested_activity)
     
-st.header('Suggested activity')
+st.header('Sugerowane zajęcie')
 st.info(suggested_activity['activity'])
 
 col1, col2, col3 = st.columns(3)
 with col1:
-  st.metric(label='Number of Participants', value=suggested_activity['participants'], delta='')
+  st.metric(label='Liczba uczestników', value=suggested_activity['participants'], delta='')
 with col2:
-  st.metric(label='Type of Activity', value=suggested_activity['type'].capitalize(), delta='')
+  st.metric(label='Rodzaj aktywności', value=suggested_activity['type'].capitalize(), delta='')
 with col3:
-  st.metric(label='Price', value=suggested_activity['price'], delta='')
+  st.metric(label='Cena', value=suggested_activity['price'], delta='')
 ```
 
-## Line-by-line explanation
-The very first thing to do when creating a Streamlit app is to start by importing the `streamlit` library as `st` and the `requests` library like so:
+## Wyjaśnienie działania, linijka po linijce
+Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację w Streamlicie jest zaimportowanie biblioteki streamlit jako st. 
 ```python
 import streamlit as st
 import requests
 ```
 
-The app's title is displayed via `st.title`:
+Tytuł aplikacji jest wyświetlony przy użyciu polecenia `st.title`:
 ```python
-st.title('🏀 Bored API app')
+st.title('🏀 Aplikacja Bored API')
 ```
 
-Next, we'll accept user input on the **activity type** by means of the `st.selectbox` command:
+Następne pobierzemy od użytkownika informację na temat **typu aktywności** za pomocą polecenia `st.selectbox`:
+
 ```python
-st.sidebar.header('Input')
-selected_type = st.sidebar.selectbox('Select an activity type', ["education", "recreational", "social", "diy", "charity", "cooking", "relaxation", "music", "busywork"])
+st.sidebar.header('Wejście')
+selected_type = st.sidebar.selectbox('Wybierz typ aktywności', ["edukacja", "rekreacja", "społeczność", "zrób to sam", "dobroczynność", "gotowanie", "relaks", "muzyka", "zabijanie czasu"])
 ```
 
-The selected activity mentioned above is then appended to the URL via an f-string, which is then used to retrieve the resulting JSON data: 
+Wybrana aktywność jest następnie tłumaczona na język angielski i dopisywana poprzez f-string do adresu URL, spod którego będziemy pobierać odpowiedź z zewnętrznego serwera z postaci danych w formacie JSON.
+
+
 ```python
-suggested_activity_url = f'http://www.boredapi.com/api/activity?type={selected_type}'
+activity_translations = {
+   "edukacja": "education",
+   "rekreacja": "recreational",
+   "społeczność": "social",
+   "zrób to sam": "diy",
+   "dobroczynność": "charity",
+   "gotowanie": "cooking",
+   "relaks": "relaxation",
+   "muzyka":  "music",
+   "zabijanie czasu": "busywork"
+}
+
+suggested_activity_url = f'http://www.boredapi.com/api/activity?type={activity_translations[selected_type]}'
 json_data = requests.get(suggested_activity_url)
 suggested_activity = json_data.json()
 ```
 
-Here, we'll display information about the app and the JSON data via the `st.expander` command.
+Tutaj wyświetlamy informacje o aplikacji oraz dane w formacie JSON używając polecenia `st.expander`
+
 ```python
 c1, c2 = st.columns(2)
 with c1:
-  with st.expander('About this app'):
-    st.write('Are you bored? The **Bored API app** provides suggestions on activities that you can do. This app is powered by the Bored API.')
+  with st.expander('O tej aplikacji'):
+    st.write('Czujesz się znudzony? Aplikacja **Bored API** potrafi podpowiedzieć zajęcia, dzięki którym zwalczysz nudę. Ta aplikacja korzysta z Bored API.')
 with c2:
-  with st.expander('JSON data'):
+  with st.expander('Dane w formacie JSON'):
     st.write(suggested_activity)
 ```
 
-We'll then display a suggested activity like so:
+Następnie wyświetlamy sugerowaną aktywność:
+
 ```python
-st.header('Suggested activity')
+st.header('Sugerowane zajęcie')
 st.info(suggested_activity['activity'])
 ```
 
+Na koniec wyświetlamy dodatkowe infomracje na temat sugerowanego zajęcia, takie jak liczba uczestników, rozdzaj aktywności czy cena.
 Finally, we'll also display the accompanying information of the suggested activity such as the `Number of Participants`, `Type of Activity` and `Price`.
 ```python
 col1, col2, col3 = st.columns(3)
 with col1:
-  st.metric(label='Number of Participants', value=suggested_activity['participants'], delta='')
+  st.metric(label='Liczba uczestników', value=suggested_activity['participants'], delta='')
 with col2:
-  st.metric(label='Type of Activity', value=suggested_activity['type'].capitalize(), delta='')
+  st.metric(label='Rodzaj aktywności', value=suggested_activity['type'].capitalize(), delta='')
 with col3:
-  st.metric(label='Price', value=suggested_activity['price'], delta='')
+  st.metric(label='Cena', value=suggested_activity['price'], delta='')
 ```
 
-## Further reading
+## Zobacz też
 - [Bored API](http://www.boredapi.com/)
