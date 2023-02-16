@@ -1,51 +1,52 @@
-# The Art of Creating Streamlit Apps
+# Sztuka budowania aplikacji
 
-Today's Day 30 of the *#30DaysOfStreamlit* challenge. Congratulations on making this far in the challenge.
+Przed nami 30-ty dzień wyzwania 30 dni Streamlita. Gratulacje, że nadal jesteś z nami!
 
-In this tutorial, we're going to put our newfound knowledge from this learning challenge to create Streamlit apps to solve real-world problem.
+Podczas dzisiejszej lekcji postaramy się wykorzystać naszą nowo zdobytą wiedzę do zmierzenia się z rzeczywistym problemem.
 
-## Real-world problem
+## Nasz problem
 
-As a content creator, having access to thumbnail images from YouTube videos are useful resources for social promotion and content creation.
+Dostęp do miniatur z filmów w YouTube były bardzo przydatny różnym twórcom internetowych treści. Są to przydatne zasoby, pomocne na przykład podczas promocji w mediach społecznościowych.
 
-Let's figure out how we're going to tackle this problem and build a Streamlit app.
+Zastanówmy się, w jaki sposób możemy ugryźć ten problem poprzez zbudowanie Streamlitowej aplikacji.
 
-## Solution
+## Rozwiązanie
 
-Today, we're going to build `yt-img-app`, which is a Streamlit app that can extract thumbnail images from YouTube videos.
+Dzisiaj stworzymy aplikację o nazwie `yt-img-app`, która potrafi pobrać miniatury obrazów z filmików na YouTubie.
 
-In a nutshell, here's the 3 simple steps that we want the Streamlit app to do:
+W uproszczeniu, cały proces składa się z trzech kroków:
 
-1. Accept a YouTube URL as input from users
-2. Perform text processing of the URL to extract the unique YouTube video ID
-3. Use the YouTube video ID as an input to a custom function that retrieves and displays the thumbnail image from YouTube videos
+1. Pobranie od użytkownika linku do filmiku
+2. Wyciągnięcie z linku unikalnego identyfikatora filmiku
+3. Użycie identyfikatora jako wejścia do specjalnej funkcji, która wygeneruje link do miniatury.
 
-## Instructions
 
-To get started in using the Streamlit app, copy and paste a YouTube URL into the input text box.
+## Instrukcje
 
-## Demo app
+Aby skorzystać z aplikacji, którą budujemy będzie trzeba skopiować adres URL filmiku na YouTubie i wkleić go w polu tekstowym.
+
+## Przykładowa aplikacja
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/dataprofessor/yt-img-app/)
 
-## Code
-Here's how to build the `yt-img-app` Streamlit app:
+## Kod
+Oto w jaki sposób zbudować aplikację `yt-img-app`:
 ```python
 import streamlit as st
 
 st.title('🖼️ yt-img-app')
-st.header('YouTube Thumbnail Image Extractor App')
+st.header('Pobierz obrazki z filmiku na YouTubie')
 
-with st.expander('About this app'):
-  st.write('This app retrieves the thumbnail image from a YouTube video.')
+with st.expander('O tej aplikacji'):
+  st.write('Ta aplikacja pobiera miniatury obrazów z filmików na YuTubie')
   
-# Image settings
-st.sidebar.header('Settings')
-img_dict = {'Max': 'maxresdefault', 'High': 'hqdefault', 'Medium': 'mqdefault', 'Standard': 'sddefault'}
-selected_img_quality = st.sidebar.selectbox('Select image quality', ['Max', 'High', 'Medium', 'Standard'])
+# Ustawienia obrazków
+st.sidebar.header('Ustawienia')
+img_dict = {'Maksymalna': 'maxresdefault', 'Wysoka': 'hqdefault', 'Średnia': 'mqdefault', 'Standardowa': 'sddefault'}
+selected_img_quality = st.sidebar.selectbox('Wybierz jakość miniatur', ['Maksymalna', 'Wysoka', 'Średnia', 'Standardowa'])
 img_quality = img_dict[selected_img_quality]
 
-yt_url = st.text_input('Paste YouTube URL', 'https://youtu.be/JwSS70SZdyM')
+yt_url = st.text_input('Wkej link do filmiku', 'https://youtu.be/JwSS70SZdyM')
 
 def get_ytid(input_url):
   if 'youtu.be' in input_url:
@@ -54,48 +55,52 @@ def get_ytid(input_url):
     ytid = input_url.split('=')[-1]
   return ytid
     
-# Display YouTube thumbnail image
+# Wyświetl miniaturę filmiku
 if yt_url != '':
   ytid = get_ytid(yt_url) # yt or yt_url
 
   yt_img = f'http://img.youtube.com/vi/{ytid}/{img_quality}.jpg'
   st.image(yt_img)
-  st.write('YouTube video thumbnail image URL: ', yt_img)
+  st.write('Miniatura znajduje się tutaj: ', yt_img)
 else:
-  st.write('☝️ Enter URL to continue ...')
+  st.write('☝️ Podaj adres URL filmiku aby kontynuować ...')
 ```
 
-## Line-by-line explanation
-The very first thing to do when creating a Streamlit app is to start by importing the `streamlit` library as `st` like so:
+## Wyjaśnienie działania, linijka po linijce
+Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację w Streamlicie jest zaimportowanie biblioteki streamlit jako st.
 ```python
 import streamlit as st
 ```
 
-Next, we display the app's title and accompanying header:
+Następnie podajemy tekst nagłówka aplikacji:
 ```python
 st.title('🖼️ yt-img-app')
-st.header('YouTube Thumbnail Image Extractor App')
+st.header('Pobierz obrazki z filmiku na YouTubie')
 ```
-While we're at it, we'll might as well throw in an About expandable box.
+
+Skoro już przy tym jesteśmy to możemy dodać też sekcję o aplikacji w postaci rozszerzalnego kontenera:
 ```python
-with st.expander('About this app'):
-  st.write('This app retrieves the thumbnail image from a YouTube video.')
- 
-Here, we create selection box for accepting user input on the image quality to use.
+with st.expander('O tej aplikacji'):
+  st.write('Ta aplikacja pobiera miniatury obrazów z filmików na YuTubie')
+```  
+
+Teraz stworzymy pole wyboru, za pomocą którego przyjmiemy od użytkownika informacje o preferowanej jakości miniatur
+
 ```python
-# Image settings
-st.sidebar.header('Settings')
-img_dict = {'Max': 'maxresdefault', 'High': 'hqdefault', 'Medium': 'mqdefault', 'Standard': 'sddefault'}
-selected_img_quality = st.sidebar.selectbox('Select image quality', ['Max', 'High', 'Medium', 'Standard'])
+# Ustawienia obrazków
+st.sidebar.header('Ustawienia')
+img_dict = {'Maksymalna': 'maxresdefault', 'Wysoka': 'hqdefault', 'Średnia': 'mqdefault', 'Standardowa': 'sddefault'}
+selected_img_quality = st.sidebar.selectbox('Wybierz jakość miniatur', ['Maksymalna', 'Wysoka', 'Średnia', 'Standardowa'])
 img_quality = img_dict[selected_img_quality]
 ```
 
-An input text box is displayed to accept user input on the YouTube video URL to use for extracting the image from.
+Dodamy również pole tekstowe akceptujące link do filmiku na YouTubie, z którego użytkownik chce wyciągnąć miniatury.
+
 ```python
-yt_url = st.text_input('Paste YouTube URL', 'https://youtu.be/JwSS70SZdyM')
+yt_url = st.text_input('Wkej link do filmiku', 'https://youtu.be/JwSS70SZdyM')
 ```
 
-A custom function for performing text processing of the input URL.
+Następnie napiszemy własną funkcję, która wyciąga identyfikator z adresu URL
 ```python
 def get_ytid(input_url):
   if 'youtu.be' in input_url:
@@ -105,23 +110,24 @@ def get_ytid(input_url):
   return ytid
 ```
 
-Finally, we use flow control to determine whether to display a reminder to enter the URL (i.e. as in the `else` statement) or to display the YouTube thumbnail image (i.e. as in the `if` statement).
+Na koniec użyjemy wyrażenia warunkowego aby zdecydować czy powinniśmy wyświetlić komunikat z prośbą o podanie linka do filmiku (kod w we wciętym bolku pod słowem kluczowym `else`) czy wyświetlić pobraną miniaturę (kod pod słowem kluczowym `if`).
+
 ```python
-# Display YouTube thumbnail image
+# Wyświetl miniaturę filmiku
 if yt_url != '':
   ytid = get_ytid(yt_url) # yt or yt_url
 
   yt_img = f'http://img.youtube.com/vi/{ytid}/{img_quality}.jpg'
   st.image(yt_img)
-  st.write('YouTube video thumbnail image URL: ', yt_img)
+  st.write('Miniatura znajduje się tutaj: ', yt_img)
 else:
-  st.write('☝️ Enter URL to continue ...')
+  st.write('☝️ Podaj adres URL filmiku aby kontynuować ...')
 ```
 
-## Summary
+## Podsumowanie
 
-In summary, we have seen that in the creation of any Streamlit app, we normally start by first identifying and defining the problem. Next, we devise a solution to tackle the problem by breaking it down into the granular steps, which we implement in the Streamlit app. 
+Przy tworzeniu dowolnej aplikacji Streamlita zwykle zaczynamy od zidentyfikowania i zdefiniowania problemu. Następnie opracowujemy rozwiązanie, dzieląc go na szczegółowe kroki, które implementujemy w naszej aplikacji.
 
-Here, we also have to determine which data or information that we need as input from users, the approach and method to use in processing the user input in order to produce the final desired output.
+Musimy się również zastanowić, jakich danych potrzebujemy pobrać od użytkowników, poraz w jaki sposób należy ten dane przetworzyć aby uzyskać pożądany wynik.
 
-Hope you enjoyed this tutorial, Happy Streamlit-ing!
+Mamy nadzieję, że podobał Ci się ten samouczek, udanego tworzenia własnych aplikacji!
