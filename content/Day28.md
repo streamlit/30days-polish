@@ -1,24 +1,28 @@
-# streamlit-shap
+# Komponent streamlit-shap
 
-[`streamlit-shap`](https://github.com/snehankekre/streamlit-shap) is a Streamlit component that provides a wrapper to display [SHAP](https://github.com/slundberg/shap) plots in [Streamlit](https://streamlit.io/). 
+[`streamlit-shap`](https://github.com/snehankekre/streamlit-shap) jest komponentem Streamlita, który dostarcza integracji z wykresami biblioteki [SHAP](https://github.com/slundberg/shap). 
 
-The library is developed by our in-house staff [Snehan Kekre](https://github.com/snehankekre) who also maintains the [Streamlit Documentation](https://docs.streamlit.io/) website.
+Biblioteka jest rozwijana przez naszego kolegę [Snehana Kekre](https://github.com/snehankekre), który poza tym opiekuje się stroną [dokumentacji Streamlita](https://docs.streamlit.io/).
 
-Firstly, install Streamlit (of course!) then pip install the `streamlit-shap` library:
+Przede wszystkim zainstaluj Streamlita (oczywistość!) a następnie bibliotekę  `streamlit-shap`:
+
 ```bash
 pip install streamlit
 pip install streamlit-shap
 ```
 
-There are also other prerequisite libraries to install (e.g. `matplotlib`, `pandas`, `scikit-learn` and `xgboost`) if you haven't yet done so.
+
+Należy również mieć zainstalowane inne biblioteki (np. `matplotlib`, `pandas`, `scikit-learn` czy `xgboost`) więc upewnij się czy je masz.
 
 
-## Demo app
+## Przykładowa aplikacja
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/dataprofessor/streamlit-shap/)
 
-## Code
-Here's how to use `streamlit-shap`:
+## Kod
+
+Oto jak korzystać z komponentu `streamlit-shap`:
+
 ```python
 import streamlit as st
 from streamlit_shap import st_shap
@@ -50,50 +54,50 @@ def load_model(X, y):
     model = xgboost.train(params, d_train, 10, evals = [(d_test, "test")], verbose_eval=100, early_stopping_rounds=20)
     return model
 
-st.title("`streamlit-shap` for displaying SHAP plots in a Streamlit app")
+st.title("Komponent `streamlit-shap` do wyświetlania wykresów SHAP w Streamlitowych aplikacjach")
 
-with st.expander('About the app'):
-    st.markdown('''[`streamlit-shap`](https://github.com/snehankekre/streamlit-shap) is a Streamlit component that provides a wrapper to display [SHAP](https://github.com/slundberg/shap) plots in [Streamlit](https://streamlit.io/). 
-                    The library is developed by our in-house staff [Snehan Kekre](https://github.com/snehankekre) who also maintains the [Streamlit Documentation](https://docs.streamlit.io/) website.
+with st.expander('O aplikacji'):
+    st.markdown('''[`streamlit-shap`](https://github.com/snehankekre/streamlit-shap) jest komponentem Streamlita, który dostarcza integracji z wykresami biblioteki [SHAP](https://github.com/slundberg/shap). 
+                    Biblioteka jest rozwijana przez naszego kolegę [Snehana Kekre](https://github.com/snehankekre), który poza tym opiekuje się stroną [dokumentacji Streamlita](https://docs.streamlit.io/).
                 ''')
 
-st.header('Input data')
+st.header('Dane wejściowe')
 X,y = load_data()
 X_display,y_display = shap.datasets.adult(display=True)
 
-with st.expander('About the data'):
-    st.write('Adult census data is used as the example dataset.')
+with st.expander('Informacje na temat danych'):
+    st.write('Jako przykładowy zestaw danych użyto danych ze spisu ludności.')
 with st.expander('X'):
     st.dataframe(X)
 with st.expander('y'):
     st.dataframe(y)
 
-st.header('SHAP output')
+st.header('Wyniki')
  
 # train XGBoost model
 model = load_model(X, y)
 
-# compute SHAP values
+# wyliczamy wartości przy użyciu biblioteki SHAP
 explainer = shap.Explainer(model, X)
 shap_values = explainer(X)
 
-with st.expander('Waterfall plot'):
+with st.expander('Wykres w postaci wodospadu'):
     st_shap(shap.plots.waterfall(shap_values[0]), height=300)
-with st.expander('Beeswarm plot'):
+with st.expander('Wykres w postaci plasta miodu'):
     st_shap(shap.plots.beeswarm(shap_values), height=300)
 
 explainer = shap.TreeExplainer(model)
 shap_values = explainer.shap_values(X)
 
-with st.expander('Force plot'):
-    st.subheader('First data instance')
+with st.expander('Wykres siłowy'):
+    st.subheader('Pierwszy wiersz danych')
     st_shap(shap.force_plot(explainer.expected_value, shap_values[0,:], X_display.iloc[0,:]), height=200, width=1000)
-    st.subheader('First thousand data instance')
+    st.subheader('Pierwszy tysiąc wierszy danych')
     st_shap(shap.force_plot(explainer.expected_value, shap_values[:1000,:], X_display.iloc[:1000,:]), height=400, width=1000)
 ```
 
-## Line-by-line explanation
-The very first thing to do when creating a Streamlit app is to start by importing the `streamlit` library as `st` like so:
+## Wyjaśnienie działania, linijka po linijce
+Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację w Streamlicie jest zaimportowanie biblioteki streamlit jako st. Przyda nam się również kilka innych bibliotek.
 ```python
 import streamlit as st
 from streamlit_shap import st_shap
@@ -104,19 +108,21 @@ import numpy as np
 import pandas as pd
 ```
 
-Next, we'll set the page layout to be wide such that contents in the Streamlit app can spread the full page width.
+Następnie zmienimy układ strony tak aby treść naszej aplikacji wypełniała całą jej szerokość.
 ```python
 st.set_page_config(layout="wide")
 ```
 
-Then, we'll load in a dataset from the `shap` library:
+Potem załadujemy zbiór danych z biblioteki `shap`:
 ```python
 @st.experimental_memo
 def load_data():
     return shap.datasets.adult()
 ```
 
-Subsequently, we'll definite a function called `load_model` for taking in the `X, y` matrix pair as input, perform data splitting to train/test sets, constructing a `DMatrix` and build an XGBoost model.
+Teraz zdefiniujemy funkcję o nazwie `load_model` , która będzie przyjmować parametry `X, y` w postaci pary macierzy, 
+podzieli dane na zestawy treningowe i testowe oraz skonstruuje macierz `DMatrix` i zbuduje model XGBoost.
+
 ```python
 @st.experimental_memo
 def load_model(X, y):
@@ -135,27 +141,31 @@ def load_model(X, y):
     return model
 ```
 
-The title of the Streamlit app is then displayed:
+Następnie podajemy tekst nagłówka aplikacji:
+
 ```python
-st.title("`streamlit-shap` for displaying SHAP plots in a Streamlit app")
+st.title("Komponent `streamlit-shap` do wyświetlania wykresów SHAP w Streamlitowych aplikacjach")
 ```
 
-An about expander box is implemented to provide details of the app:
+Wyświetlamy również informacje o apikacji za pomocą polecenia `st.expander`:
+
+
 ```python
-with st.expander('About the app'):
-    st.markdown('''[`streamlit-shap`](https://github.com/snehankekre/streamlit-shap) is a Streamlit component that provides a wrapper to display [SHAP](https://github.com/slundberg/shap) plots in [Streamlit](https://streamlit.io/). 
-                    The library is developed by our in-house staff [Snehan Kekre](https://github.com/snehankekre) who also maintains the [Streamlit Documentation](https://docs.streamlit.io/) website.
+with st.expander('O aplikacji'):
+    st.markdown('''[`streamlit-shap`](https://github.com/snehankekre/streamlit-shap) jest komponentem Streamlita, który dostarcza integracji z wykresami biblioteki [SHAP](https://github.com/slundberg/shap). 
+                    Biblioteka jest rozwijana przez naszego kolegę [Snehana Kekre](https://github.com/snehankekre), który poza tym opiekuje się stroną [dokumentacji Streamlita](https://docs.streamlit.io/).
                 ''')
 ```
 
-Here, we'll display the header text along with expander box of the `X` and `y` variables of the Input data:
+Teraz wyświetlimy nagłówek razem z rozszerzalnym polem prezentującym informacje o danych wejściowych przechowywanych w zmiennych `X` oraz `y`.
+
 ```python
-st.header('Input data')
+st.header('Dane wejściowe')
 X,y = load_data()
 X_display,y_display = shap.datasets.adult(display=True)
 
-with st.expander('About the data'):
-    st.write('Adult census data is used as the example dataset.')
+with st.expander('Informacje na temat danych'):
+    st.write('Jako przykładowy zestaw danych użyto danych ze spisu ludności.')
 with st.expander('X'):
     st.dataframe(X)
 with st.expander('y'):
@@ -200,6 +210,6 @@ with st.expander('Force plot'):
     st_shap(shap.force_plot(explainer.expected_value, shap_values[:1000,:], X_display.iloc[:1000,:]), height=400, width=1000)
 ```
 
-## Further reading
+## Zobacz też
 - [`streamlit-shap`](https://github.com/snehankekre/streamlit-shap)
 - [SHAP](https://github.com/slundberg/shap)
