@@ -74,7 +74,7 @@ with st.expander('y'):
 
 st.header('Wyniki')
  
-# train XGBoost model
+# trenowanie modelu XGBoost
 model = load_model(X, y)
 
 # wyliczamy wartości przy użyciu biblioteki SHAP
@@ -147,7 +147,7 @@ Następnie podajemy tekst nagłówka aplikacji:
 st.title("Komponent `streamlit-shap` do wyświetlania wykresów SHAP w Streamlitowych aplikacjach")
 ```
 
-Wyświetlamy również informacje o apikacji za pomocą polecenia `st.expander`:
+Wyświetlamy również informacje o aplikacji za pomocą polecenia `st.expander`:
 
 
 ```python
@@ -172,33 +172,36 @@ with st.expander('y'):
     st.dataframe(y)
 ```
 
-Here, we'll display the header text for the forthcoming SHAP output:
+Następnie wyświetlamy nagłówek informujący o spodziewanych wynikach z biblioteki SHAP:
 ```python
-st.header('SHAP output')
+st.header('Wyniki')
 ```
 
-The XGBoost model is then built by using the `load_model` function that was just implemented above. Finally, 
+Potem budowany jest model XGboost. Zwraca go funkcja `load_model`, zaimplementowana powyżej:
+
 ```python
-# train XGBoost model
+# trenowanie modelu XGBoost
 X,y = load_data()
 X_display,y_display = shap.datasets.adult(display=True)
 
 model = load_model(X, y)
 ```
 
-Here, we'll compute the SHAP values, which are then used to create the Waterfall and Beeswarm plots.
+Dalej wyliczamy wartości SHAP, które są następnie użyte do stworzenia wykresów.
+
 ```python
 # compute SHAP values
 explainer = shap.Explainer(model, X)
 shap_values = explainer(X)
 
-with st.expander('Waterfall plot'):
+with st.expander('Wykres w postaci wodospadu'):
     st_shap(shap.plots.waterfall(shap_values[0]), height=300)
-with st.expander('Beeswarm plot'):
+with st.expander('Wykres w postaci plasta miodu'):
     st_shap(shap.plots.beeswarm(shap_values), height=300)
 ```
 
-Finally, the Tree SHAP algorithms is used to explain the output of ensemble tree models via the `shap.TreeExplainer` command and visualized via the `shap.force_plot` command:
+Na koniec używamy drzewiastych algorytmów SHAP aby wyjaśnić wynik zwrócony przez nasz model. Można to zrobić przy użyciu obiektu typu `shap.TreeExplainer` oraz funkcji do wizualizacji o nazwie `shap.force_plot`.
+
 ```python
 explainer = shap.TreeExplainer(model)
 shap_values = explainer.shap_values(X)
