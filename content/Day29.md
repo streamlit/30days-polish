@@ -1,32 +1,33 @@
-# How to make a zero-shot learning text classifier using Hugging Face and Streamlit
+# Stwórz klasyfikator tekstu typu zero-shot korzystając z Hugging Face i Streamlita
 
-In today's challenge, [Charly Wargnier](https://twitter.com/DataChaz) will walk us through the process of developing a zero-shot learning text classifier using Hugging Face and Streamlit.
+W dzisiejszej lekcji, [Charly Wargnier](https://twitter.com/DataChaz) przeprowadzi nas przez proces tworzenia klasyfikatora tekstu typu zero-shot z użyciem potalu Hugging Face oraz Streamlita.
 
-## Introduction
 
-Hey Streamliters!
+## Wprowadznie
 
-Today I'm excited to have the opportunity to contribute to the 30DaysofStreamlit challenge via this hands-on tutorial! 🎈
+Cześć!
 
-## What are we building?
+Będe miał dziś przyjemność wzięcia udziału w inicjatywie 30DaysofStreamlit poprzez lekcję, z którą właśnie się zapoznajecie! 🎈
 
-We will create a zero-shot learning text classifier using Hugging Face's API inference and Distilbart!
+## Co będziemy budować?
 
-You will have the mighty power to classify keyphrases on-the-fly, fast, and without pre ML training!
+Stworzymy klasyfikator tekstu typu zero-shot za pomocą API Hugging Face i modelu Distilbart!
 
-Create classifying labels, paste your keyphrases, and you're off!
+Zdobędziemy potężną moc klasyfikowania kluczowych wyrażeń w locie, szybko i bez wcześniejszego trenowania modelu!
 
-You can set these labels anything, e.g.:
+Po prostu stwórz swoje etykiety, wklej frazy i gotowe!
 
-- Positive, Negative and Neutral for sentiment analysis
-- Angry, Happy, Emotional for emotion analysis
-- Navigational, Transactional, Informational for intent classification purposes
-- Your product range  (bags, shoes, boots etc.)
+Możesz skonfigurować swoje etykiety tak by klasyfikować wszystko co chcesz, na przykład:
 
-You decide! 
+- Pozytywny, Negatywny i Neutralny sentyment wypowiedzi
+- Zdenerwowany, Szczęśliwy, Wzruszony dla analizy emocji
+- Wskazówki, Transakcje, Informcje dla klasyfikacji intencji
+- Klasyfikacja asortymentu produktów (torby, buty, sukienki itd.)
 
-Excited? Let's dive in! 
+To Ty decydujesz! 
 
-## Read the full blog
-👉 [Read the full blog](https://www.charlywargnier.com/post/how-to-create-a-zero-shot-learning-text-classifier-using-hugging-face-and-streamlit)
+Brzmi dobrze? No to do dzieła!
+
+## Przeczytaj caly wpis
+👉 [Całość artykułu na blogu](https://www.charlywargnier.com/post/how-to-create-a-zero-shot-learning-text-classifier-using-hugging-face-and-streamlit)
 
