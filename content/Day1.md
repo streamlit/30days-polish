@@ -34,7 +34,7 @@ pip install streamlit
 ```
 
 ## **Uruchaianie przykładowej aplikacji**
-Aby uruchomić przykładową aplikację, wpisz:
+Aby uruchomić przykładową aplikację (Ilustracja 1), wpisz:
 ```bash
 streamlit hello
 ```
