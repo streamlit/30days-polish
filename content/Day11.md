@@ -1,6 +1,6 @@
 # Polecenie st.multiselect
 
-Polecenie `st.multiselect` służy do wyświetelnia widżetu wielokrotnego wyboru.
+Polecenie `st.multiselect` służy do wyświetlenia widżetu wielokrotnego wyboru.
 
 ## Przykładowa aplikacja
 
@@ -26,7 +26,7 @@ st.write('Wybrałeś:', options)
 
 ## Wyjaśnienie działania, linijka po linijce
 
-Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację w Streamlicie jest zaimportowanie biblioteki streamlit jako st. 
+Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację jest zaimportowanie biblioteki streamlit jako st. 
 ```python
 import streamlit as st
 ```

@@ -13,7 +13,7 @@ md_files = sorted([int(x.strip('Day').strip('.md')) for x in glob.glob1('content
 col1, col2, col3 = st.columns((1,4,1))
 with col2:
     st.image(Image.open('streamlit-logo-secondary-colormark-darktext.png'))
-st.markdown('# 30 dni ze Streamlitem po polsku 🎈')
+st.markdown('# Streamlit w 30 dni po polsku 🎈')
 
 days_list = [f'Dzień {x}' for x in md_files]
 
@@ -36,7 +36,7 @@ with st.expander("Przeczytaj więcej o inicjatywie #30DaysOfStreamlit"):
     ''')
 
 # Sidebar
-st.sidebar.header('O Streamlicie')
+st.sidebar.header('Czym jest Streamlit?')
 st.sidebar.markdown('[Streamlit](https://streamlit.io) jest biblioteką Pythona, która umożliwia tworzenie '
                     'interaktywnych aplikacji internetowych opartych na danych. '
                     'Aplikacje tworzysz wyłącznie z użyciem Pythona i bez konieczności używania innych technologii,'
@@ -44,14 +44,15 @@ st.sidebar.markdown('[Streamlit](https://streamlit.io) jest biblioteką Pythona,
 
 st.sidebar.header('Zobacz też (materiały po angielsku)')
 st.sidebar.markdown('''
-- [Dokumentacja Streamlita](https://docs.streamlit.io/)
+- [Dokumentacja](https://docs.streamlit.io/)
 - [Ściągawka](https://docs.streamlit.io/library/cheatsheet)
-- [Książka](https://www.amazon.com/dp/180056550X) (Pierwsze kroki ze Streamlitem w przetwarzaniu danych)
-- [Blog](https://blog.streamlit.io/how-to-master-streamlit-for-data-science/) (Jak opanować Streamlita do analizy danych)
+- [Książka](https://www.amazon.com/dp/180056550X) (Pierwsze kroki z biblioteką Streamlit w przetwarzaniu danych)
+- [Blog](https://blog.streamlit.io/how-to-master-streamlit-for-data-science/) 
+(Jak opanować bibliotekę Streamlit do analizy danych?)
 ''')
 
 st.sidebar.header('Wdrażanie')
-st.sidebar.markdown('Dzięki [Społecznościowej Chmurze Streamlita](https://streamlit.io/cloud) możesz szybko wdrożyć '
+st.sidebar.markdown('Dzięki [Chmurze](https://streamlit.io/cloud) możesz szybko wdrożyć '
                     'swoją aplikację za pomocą kilku kliknięć.')
 
 # Display content

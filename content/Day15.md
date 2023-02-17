@@ -11,7 +11,7 @@ Prostą aplikację, która wyświetla matematyczne rówania korzystając ze skł
 
 ## Kod
 
-Oto jak uzywać polecenia `st.latex`:
+Oto jak używać polecenia `st.latex`:
 
 ```python
 import streamlit as st
@@ -27,7 +27,7 @@ st.latex(r'''
 
 ## Wyjaśnienie działania, linijka po linijce
 
-Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację w Streamlicie jest zaimportowanie biblioteki streamlit jako st.
+Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację jest zaimportowanie biblioteki streamlit jako st.
 
 ```python
 import streamlit as st
@@ -48,4 +48,4 @@ st.latex(r'''
 ```
 
 ## Zobacz też
-- Przeczytaj więce na temat polecenia [`st.latex`](https://docs.streamlit.io/library/api-reference/text/st.latex) w oficlajnej dokumentacji Streamlita.
+- Przeczytaj więcej na temat polecenia [`st.latex`](https://docs.streamlit.io/library/api-reference/text/st.latex) w oficjalnej dokumentacji.

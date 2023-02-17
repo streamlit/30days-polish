@@ -29,7 +29,7 @@ st.balloons()
 
 ## Wyjaśnienie działania, linijka po linijce
 
-Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację w Streamlicie jest zaimportowanie biblioteki streamlit jako st. Przyda nam się również standardowa biblioteka do obsługi czasu:
+Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację jest zaimportowanie biblioteki streamlit jako st. Przyda nam się również standardowa biblioteka do obsługi czasu:
 ```python
 import streamlit as st
 import time

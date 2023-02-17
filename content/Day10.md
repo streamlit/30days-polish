@@ -11,7 +11,7 @@ Przebieg aplikacji:
 2. Aplikacja wyświetla wybór użytkownika
 
 ## Przykładowa aplikacja
-Po uruchomieniu Twoja aplikacja powinna wyglądać mniej więcej jak ta tutaj: 
+Po uruchomieniu Twoja aplikacja powinna wyglądać mniej więcej tak jak ta tutaj: 
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/dataprofessor/st.selectbox/)
 
@@ -33,7 +33,7 @@ st.write('Twój ulubiony kolor to ', option)
 
 ## Wyjaśnienie działania, linijka po linijce
 
-Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację w Streamlicie jest zaimportowanie biblioteki streamlit jako st.
+Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację jest zaimportowanie biblioteki streamlit jako st.
 ```python
 import streamlit as st
 ```
@@ -43,7 +43,7 @@ Następnie podajemy tekst nagłówka aplikacji:
 st.header('Polecenie st.selectbox')
 ```
 
-Potem stworzymy zmienną, którą naziemy `option`. Będziemy w niej przechowywać wybór użytkownika dokonany przy użyciu widgetu stworzonego poleceniem `st.selectbox()`.
+Potem stworzymy zmienną, którą nazwiemy `option`. Będziemy w niej przechowywać wybór użytkownika dokonany przy użyciu widgetu stworzonego poleceniem `st.selectbox()`.
 
 ```python
 option = st.selectbox(

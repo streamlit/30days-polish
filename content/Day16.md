@@ -1,6 +1,6 @@
 # Dostosowywanie wyglądu aplikacji
 
-Używajać parametrów w pliku `config.toml`, można w łatwy sposób skonfigurować wizualne aspekty aplikacji. Plik `config.toml` znajduje się w ukrytym podkatalogu o nazwie `.streamlit` wewnętrz tego samego katalogu, w którym znajduje się aplikacja.
+Używając parametrów w pliku `config.toml`, można w łatwy sposób skonfigurować wizualne aspekty aplikacji. Plik `config.toml` znajduje się w ukrytym podkatalogu o nazwie `.streamlit` wewnątrz tego samego katalogu, w którym znajduje się aplikacja.
 
 ## Co będziemy budować?
 
@@ -44,7 +44,7 @@ font="monospace"
 ```
 
 ## Wyjaśnienie działania, linijka po linijce
-Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację w Streamlicie jest zaimportowanie biblioteki streamlit jako st. 
+Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację jest zaimportowanie biblioteki streamlit jako st. 
 ```python
 import streamlit as st
 ```
@@ -54,7 +54,7 @@ Następnie podajemy tekst nagłówka aplikacji:
 st.title('Dostosowywanie wyglądu aplikacji')
 ```
 
-Potem wyświetlimy zawartość pliku `.streamlit/config.toml` do czego użyjemy polcenia `st.write` aby wyświetlić informację na temat pliku, oraz polecenia `st.code` aby wyświetlić właściwy kod:
+Potem wyświetlimy zawartość pliku `.streamlit/config.toml` do czego użyjemy polecenia `st.write` aby wyświetlić informację na temat pliku, oraz polecenia `st.code` aby wyświetlić właściwy kod:
 
 ```python
 st.write('Zawartość pliku `.streamlit/config.toml` dla tej aplikacji')
@@ -69,16 +69,16 @@ font="monospace"
 """)
 ```
 
-Na koniec stworzymy wiżdżet suwaka oraz wyświetlimy jego bieżącą wartość:
+Na koniec stworzymy widżet suwaka oraz wyświetlimy jego bieżącą wartość:
 ```python
 number = st.sidebar.slider('Select a number:', 0, 10, 5)
 st.write('Selected number from slider widget is:', number)
 ```
 
 Przyjrzyjmy się różnym kolorom, które określiliśmy dla naszej aplikacji poprzez ustawienie ich wewnątrz pliku `.streamlit/config.toml`
-- `primaryColor="#F39C12"` - Tutaj ustawiamy główny kolor aplikacji na pomarańczowy. Zwróć uwagę na pomarańczowe kolory wiżdżetu suwaka.
+- `primaryColor="#F39C12"` - Tutaj ustawiamy główny kolor aplikacji na pomarańczowy. Zwróć uwagę na pomarańczowe kolory widżetu suwaka.
 - `backgroundColor="#2E86C1"` - Tu ustawiamy kolor tła na niebieski. Zauważ, że tło głównego panelu jest teraz niebieskie.
-- `secondaryBackgroundColor="#AED6F1"` - W tym miejscu ustawiamy drugi kolor tła na ciemnoszary. Dzięki temu panel poczny oraz pole kodu mają teraz ciemnoszare tła. 
+- `secondaryBackgroundColor="#AED6F1"` - W tym miejscu ustawiamy drugi kolor tła na ciemnoszary. Dzięki temu panel boczny oraz pole kodu mają teraz ciemnoszare tła. 
 - `textColor="#FFFFFF"` - Kolor tekstu jest ustawiony na biały.
 - `font="monospace"` - Ta opcja spowoduje wybranie czcionki o stałej szerokości.
 

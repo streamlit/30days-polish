@@ -40,7 +40,7 @@ st.line_chart(chart_data)
 
 ## Wyjaśnienie działania, linijka po linijce
 
-Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację w Streamlicie jest zaimportowanie biblioteki streamlit jako st. Przydadzą nam się również biblioteki `Pandas` oraz `NumPy`.
+Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację jest zaimportowanie biblioteki streamlit jako st. Przydadzą nam się również biblioteki `Pandas` oraz `NumPy`.
 
 ```python
 import streamlit as st

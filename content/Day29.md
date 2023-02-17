@@ -1,13 +1,13 @@
-# Stwórz klasyfikator tekstu typu zero-shot korzystając z Hugging Face i Streamlita
+# Stwórz klasyfikator tekstu typu zero-shot, korzystając z Hugging Face i biblioteki Streamlit
 
-W dzisiejszej lekcji, [Charly Wargnier](https://twitter.com/DataChaz) przeprowadzi nas przez proces tworzenia klasyfikatora tekstu typu zero-shot z użyciem potalu Hugging Face oraz Streamlita.
+W dzisiejszej lekcji [Charly Wargnier](https://twitter.com/DataChaz) przeprowadzi nas przez proces tworzenia klasyfikatora tekstu typu zero-shot z użyciem portalu Hugging Face oraz biblioteki Streamlit.
 
 
-## Wprowadznie
+## Wprowadzenie
 
 Cześć!
 
-Będe miał dziś przyjemność wzięcia udziału w inicjatywie 30DaysofStreamlit poprzez lekcję, z którą właśnie się zapoznajecie! 🎈
+Będę miał dziś przyjemność wzięcia udziału w inicjatywie 30DaysofStreamlit poprzez lekcję, z którą właśnie się zapoznajecie! 🎈
 
 ## Co będziemy budować?
 
@@ -17,11 +17,11 @@ Zdobędziemy potężną moc klasyfikowania kluczowych wyrażeń w locie, szybko 
 
 Po prostu stwórz swoje etykiety, wklej frazy i gotowe!
 
-Możesz skonfigurować swoje etykiety tak by klasyfikować wszystko co chcesz, na przykład:
+Możesz skonfigurować swoje etykiety, tak by klasyfikować wszystko, co chcesz, na przykład:
 
 - Pozytywny, Negatywny i Neutralny sentyment wypowiedzi
 - Zdenerwowany, Szczęśliwy, Wzruszony dla analizy emocji
-- Wskazówki, Transakcje, Informcje dla klasyfikacji intencji
+- Wskazówki, Transakcje, Informacje dla klasyfikacji intencji
 - Klasyfikacja asortymentu produktów (torby, buty, sukienki itd.)
 
 To Ty decydujesz! 

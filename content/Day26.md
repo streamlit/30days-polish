@@ -1,9 +1,9 @@
 # Jak korzystać z API budując aplikację Bored API
 
-Aplikacja Bored API sugeruje ciekawe rzeczy, które możesz zrobić kiedy Ci się nudzi!
+Aplikacja Bored API sugeruje ciekawe rzeczy, które możesz zrobić, kiedy Ci się nudzi!
 
 
-Z technicznego punktu widzenia, pokazuje również użycie API z poziomu aplikacji Streamlita.
+Z technicznego punktu widzenia, pokazuje również użycie API z poziomu aplikacji Streamlit.
 
 ## Przykładowa aplikacja
 
@@ -11,7 +11,7 @@ Z technicznego punktu widzenia, pokazuje również użycie API z poziomu aplikac
 
 ## Kod
 
-Oto jak zaimpementować aplikację Bored-API:
+Oto jak zaimplementować aplikację Bored-API:
 
 ```python
 import streamlit as st
@@ -59,7 +59,7 @@ with col3:
 ```
 
 ## Wyjaśnienie działania, linijka po linijce
-Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację w Streamlicie jest zaimportowanie biblioteki streamlit jako st. 
+Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację jest zaimportowanie biblioteki streamlit jako st. 
 ```python
 import streamlit as st
 import requests
@@ -117,8 +117,8 @@ st.header('Sugerowane zajęcie')
 st.info(suggested_activity['activity'])
 ```
 
-Na koniec wyświetlamy dodatkowe infomracje na temat sugerowanego zajęcia, takie jak liczba uczestników, rozdzaj aktywności czy cena.
-Finally, we'll also display the accompanying information of the suggested activity such as the `Number of Participants`, `Type of Activity` and `Price`.
+Na koniec wyświetlamy dodatkowe informacje na temat sugerowanego zajęcia, takie jak liczba uczestników, rodzaj aktywności czy cena.
+
 ```python
 col1, col2, col3 = st.columns(3)
 with col1:

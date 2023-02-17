@@ -17,7 +17,7 @@ st.write(st.secrets['message'])
 ```
 
 ## Wyjaśnienie działania, linijka po linijce
-Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację w Streamlicie jest zaimportowanie biblioteki streamlit jako st.
+Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację jest zaimportowanie biblioteki streamlit jako st.
 ```python
 import streamlit as st
 ```
@@ -32,9 +32,9 @@ Na koniec wyświetlamy zapisany sekret:
 st.write(st.secrets['message'])
 ```
 
-Należy zauważyć, że serety mogą być przechowywane w Społecznościowej Chmurze Streamlita, jak pokazano na zrzutach ekranu poniżej.
+Należy zauważyć, że sekrety mogą być przechowywane w Społecznościowej Chmurze Streamlit, jak pokazano na zrzutach ekranu poniżej.
 
-Kiedy pracujemy lokalnie, sekrety mogą być przechowywane w pliku `.streamlit/secrets.toml`, ale upewnij się aby nie dodać ich do repozytorium ani nie przesłać do HitHuba podczas wdrażania aplikacji.
+Kiedy pracujemy lokalnie, sekrety mogą być przechowywane w pliku `.streamlit/secrets.toml`, ale upewnij się, aby nie dodać ich do repozytorium ani nie przesłać do serwisu GitHub podczas wdrażania aplikacji.
 
 ## Zobacz też
 - [Dodwanie sekretów do Twojej aplikacji](https://blog.streamlit.io/secrets-in-sharing-apps/)

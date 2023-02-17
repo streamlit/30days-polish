@@ -4,7 +4,7 @@ Polecenie `st.checkbox` wyświetla widżet pola wyboru.
 
 ## Przykładowa aplikacja
 
-Po uruchomieniu Twoja aplikacja powinna wyglądać mniej więcej jak ta tutaj:
+Po uruchomieniu Twoja aplikacja powinna wyglądać mniej więcej tak jak ta tutaj:
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/dataprofessor/st.checkbox/)
 
 ## Kod
@@ -33,7 +33,7 @@ if cola:
 
 ## Wyjaśnienie działania, linijka po linijce
 
-Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację w Streamlicie jest zaimportowanie biblioteki streamlit jako st:
+Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację jest zaimportowanie biblioteki streamlit jako st:
 
 ```python
 import streamlit as st

@@ -4,7 +4,7 @@ Polecenie `st.experimental_get_query_params` umożliwia przechwycenie parametró
 
 ## Przykładowa aplikacja
 
-1. Poniższy link prowadzi do przykładowej aplikacji beż jakichkolwiek paramterów w adresie URL żądania (zwróć uwagę na komunikat o błędach):
+1. Poniższy link prowadzi do przykładowej aplikacji beż jakichkolwiek parametrów w adresie URL żądania (zwróć uwagę na komunikat o błędach):
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/dataprofessor/st.experimental_get_query_params/)
 
@@ -49,7 +49,7 @@ st.write(f'Cześć **{firstname} {surname}**, jak się masz?')
 ```
 
 ## Wyjaśnienie działania, linijka po linijce
-Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację w Streamlicie jest zaimportowanie biblioteki streamlit jako st. 
+Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację jest zaimportowanie biblioteki streamlit jako st. 
 ```python
 import streamlit as st
 ```
@@ -65,7 +65,7 @@ with st.expander('O tej aplikacji'):
   st.write("`st.experimental_get_query_params` umożliwia przechwycenie parametrów żądania bezpośrednio z adresu URL przeglądarki użytkownika.")
 ```
 
-Następnie wytłumaczymy gościom naszej strony w jaki sposób mogą przekazywać parametry do adresu URL:
+Następnie wytłumaczymy gościom naszej strony, w jaki sposób mogą przekazywać parametry do adresu URL:
 ```python
 # 1. Instrukcje
 st.header('1. Instrukcje')

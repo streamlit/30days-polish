@@ -2,13 +2,13 @@
 
 ## Uruchom swój ulubiony edytor kodu
 
-Uruchom swoje ulubione IDE (zintegorwane środowisko programistyczne). Może to być Atom, VS Code czy PyCharm. Jeśli nigdy nie korzystałeś z takich narzędzi, możesz też pisać aplikacje Streamlit w zwykłym edytorze tekstowym takim jak Sublime Text, Notatnik, VIM albo wykorzytać edytory online, takie jak GitPod or GitHub.dev.
+Uruchom swoje ulubione IDE (zintegrowane środowisko programistyczne). Może to być Atom, VS Code czy PyCharm. Jeśli nigdy nie korzystałeś z takich narzędzi, możesz też pisać aplikacje Streamlit w zwykłym edytorze tekstowym takim jak Sublime Text, Notatnik, VIM albo wykorzystać edytory online, takie jak GitPod or GitHub.dev.
 
-Następnie, używając swojego ububioneg edytora, stwórz plik tekstowy o nazwie `streamlit_app.py`
+Następnie, używając swojego ulubionego edytora, stwórz plik tekstowy o nazwie `streamlit_app.py`
 
 ## Wprowadź pierwsze linijki kodu
 
-Wprowadz następujący kod do Twojego nowego pliku:
+Wprowadź następujący kod do Twojego nowego pliku:
 
 ```
 import streamlit as st

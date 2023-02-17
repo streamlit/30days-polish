@@ -2,7 +2,7 @@
 
 Polecenie `st.slider` umożliwia wyświetlanie widżetu suwaka.
 
-Suwak wspiera następujsce typy danych w Pythonie: int, float, date, time, oraz datetime.
+Suwak wspiera następujące typy danych w Pythonie: int, float, date, time, oraz datetime.
 
 ## Co będziemy budować?
 
@@ -19,7 +19,7 @@ Po uruchomieniu Twoja aplikacja powinna wyglądać mniej więcej jak ta tutaj:
 
 
 ## Kod
-Polecenie st.slider używamy w następujacy sposób:
+Polecenie st.slider używamy w następujący sposób:
 
 ```python
 import streamlit as st
@@ -66,7 +66,7 @@ st.write("Czas rozpoczęcia:", start_time)
 
 ## Wyjaśnienie działania, linijka po linijce
 
-Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację w Streamlicie jest zaimportowanie biblioteki streamlit jako st. Przyda nam się również standardowa biblioteka do obsługi czasu i dat:
+Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację jest zaimportowanie biblioteki streamlit jako st. Przyda nam się również standardowa biblioteka do obsługi czasu i dat:
 ```python
 import streamlit as st
 from datetime import time, datetime
@@ -88,9 +88,9 @@ age = st.slider('Ile masz lat?', 0, 130, 25)
 st.write("Mam ", age, 'lat')
 ```
 
-W tym przykładzie, polecenie `st.slider()` służy do pobrania od użytkownika informacji o jego wieku.
+W tym przykładzie polecenie `st.slider()` służy do pobrania od użytkownika informacji o jego wieku.
 
-W pierwszym argumencie tego polecenia, podajemy tekst, który zostanie wyświetlony powyżej widżetu **suwaka**. W naszym przypadku jest to pytanie `'Ile masz lat?'`.
+W pierwszym argumencie tego polecenia podajemy tekst, który zostanie wyświetlony powyżej widżetu **suwaka**. W naszym przypadku jest to pytanie `'Ile masz lat?'`.
 
 Kolejne trzy całkowitoliczbowe argumenty `0, 130, 25` reprezentują odpowiednio minimalną, maksymalną i domyślną wartość suwaka.
 
@@ -146,12 +146,12 @@ start_time = st.slider(
 st.write("Czas rozpoczęcia:", start_time)
 ```
 
-Ten suwak pozwala na ustawienie zarówno daty jak i czasu.
+Ten suwak pozwala na ustawienie zarówno daty, jak i czasu.
 
 Pierwszy argument wyświetla tekst powyżej **suwaka z datą i czasem**, w tym przykładzie będzie to tekst `'Kiedy zaczynasz?'`.
 
-Wartość domyślna dla suwaka została przekazana poprzez parametr o nazwie `value` i określona na 1-szy stycznia 2020 roku o godzinie 9:30.
+Wartość domyślna dla suwaka została przekazana poprzez parametr o nazwie `value` i określona na 1 stycznia 2020 roku o godzinie 9:30.
 
 ## Zobacz też
-Kliknij poniżej aby przeczytać o podobnym widżecie, który radzi sobie z kategoriami wartości:
+Kliknij poniżej, aby przeczytać o podobnym widżecie, który radzi sobie z kategoriami wartości:
 - [`st.select_slider`](https://docs.streamlit.io/library/api-reference/widgets/st.select_slider)

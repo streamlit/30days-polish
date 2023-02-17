@@ -30,7 +30,7 @@ else:
 ```
 
 ## Wyjaśnienie działania, linijka po linijce
-Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację w Streamlicie jest zaimportowanie biblioteki streamlit jako st.
+Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację jest zaimportowanie biblioteki streamlit jako st.
 ```python
 import streamlit as st
 import pandas as pd
@@ -47,7 +47,7 @@ st.subheader('Prześlij plik CSV')
 uploaded_file = st.file_uploader(("Wybierz plik z dysku")
 ```
 
-Na koniec napiszemy wyrażenie warunkowe aby na początku wyświetlić wiadomość powitalną, zachęcającą użytkowików do przesłania pliku (implementacja zjanduje się poniżej klauzuli `else`). Po przesłaniu pliku aktywuje się blok poniżej wyrażenia `if` i przesłany plik CSV zostanie odczytany przez bibliotekę `pandas` i wyświetlony za pomocą komendy `st.write`.
+Na koniec napiszemy wyrażenie warunkowe, aby na początku wyświetlić wiadomość powitalną, zachęcającą użytkowników do przesłania pliku (implementacja znajduje się poniżej klauzuli `else`). Po przesłaniu pliku aktywuje się blok poniżej wyrażenia `if` i przesłany plik CSV zostanie odczytany przez bibliotekę `pandas` i wyświetlony za pomocą komendy `st.write`.
 
 ```python
 if uploaded_file is not None:

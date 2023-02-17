@@ -1,6 +1,6 @@
 # Zbuduj pulpit z możliwością przeciągania i zmiany rozmiaru za pomocą Streamlit Elements
 
-Streamlit Elements jest zewnętrznym komponentem stworzononym przez [okld](https://github.com/okld), który dostarcza narzędzi do budowania pięknych aplikacji i pulpitów z wykorzystaniem widżetów Material UI, edytora Monaco (Visual Studio Code), wykresów Nivo i więcej.
+Streamlit Elements jest zewnętrznym komponentem stworzonym przez [okld](https://github.com/okld), który dostarcza narzędzi do budowania pięknych aplikacji i pulpitów z wykorzystaniem widżetów Material UI, edytora Monaco (Visual Studio Code), wykresów Nivo i więcej.
 
 ## Sposób użycia
 
@@ -16,14 +16,14 @@ Zalecamy przypiąć wersję do `0.1.*` ponieważ nowe wersje biblioteki mogą wp
 
 ### Użycie
 
-Może zajrzeć do pliku [Streamlit Elements README](https://github.com/okld/streamlit-elements#getting-started) aby uzyskać szczegółowe iformacje na temat biblioteki.
+Może zajrzeć do pliku [Streamlit Elements README](https://github.com/okld/streamlit-elements#getting-started), aby uzyskać szczegółowe informacje na temat biblioteki.
 
 ## Co będziemy budować?
 
 Celem dzisiejszej lekcji będzie stworzenie pulpitu złożonego z trzech komponentów Material UI:
 
-- Pierwszy komponent będzie zawierał edytor kodu Monaco aby móc wprowadzać dane ;
-- Drugi komponent będzie wyświetlał dane w postaci wykresu Nivo Bump ;
+- Pierwszy komponent będzie zawierał edytor kodu Monaco, aby móc wprowadzać dane;
+- Drugi komponent będzie wyświetlał dane w postaci wykresu Nivo Bump;
 - Trzeci komponent wyświetli wideo z portalu YouTube na podstawie adresu przekazanego poprzez `st.text_input`.
 
 Możesz użyć danych wygenerowanych z demo Nivo Bump, w zakładce „dane”: https://nivo.rocks/bump/.
@@ -41,12 +41,12 @@ import json
 import streamlit as st
 from pathlib import Path
 
-# Jeśli chodzi o Streamlit Elements, to będziemy potrzebowali wszystkich elementów zaimportowanych poniżej
+# Jeśli chodzi o Streamlit Elements, to będziemy potrzebowali wszystkich elementów zaimportowanych poniżej.
 # Wszystkie dostępne elementy wraz z opisem użycia są udokumentowane tutaj: https://github.com/okld/streamlit-elements#getting-started
 
 from streamlit_elements import elements, dashboard, mui, editor, media, lazy, sync, nivo
 
-# Zmieńmy układ strony tak aby nasz pulpit wypełniał całą jej szerokość.
+# Zmieńmy układ strony tak, aby nasz pulpit wypełniał całą jej szerokość.
 
 st.set_page_config(layout="wide")
 
@@ -59,18 +59,18 @@ with st.sidebar:
     # Zdefiniujmy adres URL dla odtwarzacza wideo.
     media_url = st.text_input("Media URL", value="https://www.youtube.com/watch?v=vIQQR_yq-8I")
 
-# Zainicjalizujmy edytor kodu i wykres domyślymi wartościami.
+# Zainicjalizujmy edytor kodu i wykres domyślnymi wartościami.
 #
 # Na potrzeby tej lekcji, będziemy używali danych z przykładowej aplikacji dla wykresu Nivo Bump.
 # Możesz pobrać dane z zakładki 'data': https://nivo.rocks/bump/
 #
-# Jak zobaczymy poniżej, klucz 'data' w stanie sesji zostanie zaktualizowany kiedy zmieni się kod w edytorze.
+# Jak zobaczymy poniżej, klucz 'data' w stanie sesji zostanie zaktualizowany, kiedy zmieni się kod w edytorze.
 # Nowe dane zostaną odczytane przez wykres Nivo Bum, który się odświeży. 
 
 if "data" not in st.session_state:
     st.session_state.data = Path("data.json").read_text()
 
-# Zdefiniujmy domyślne rozmieszczenie elementów na stronie
+# Zdefiniujmy domyślne rozmieszczenie elementów na stronie.
 # Domyślnie siatka pulpitu będzie się składać z 12 kolumn.
 #
 # Więcej informacji na temat dostępnych parametrów konfiguracji znajdziesz pod adresem:
@@ -86,7 +86,7 @@ layout = [
     dashboard.Item("wideo", 0, 2, 12, 4),
 ]
 
-# Tworzenie ramki do wyświetalnia elementów
+# Tworzenie ramki do wyświetlania elementów
 
 with elements("przykład"):
 
@@ -103,45 +103,45 @@ with elements("przykład"):
 
         # Pierwszy komponent, edytor kodu
         #
-        # Uzywamy parametru 'key' aby móc odwołać się do właściwego elementu pulpitu.
+        # Używamy parametru 'key' aby móc odwołać się do właściwego elementu pulpitu.
         #
         # Aby treść komponentu automatycznie dostosowywała swoją wysokość, użyjemy modelu flexbox.
         # sx jest parametrem dostępnym dla każdego widżetu Material UI i służy do dodania atrybutów CSS.
         #
-        # Po więcej infromacji na temat komponentów, flexboxs oraz parametru sx, zajrzyj tutaj:
+        # Po więcej informacji na temat komponentów flexbox oraz parametru sx zajrzyj tutaj:
         # https://mui.com/components/cards/
         # https://mui.com/system/flexbox/
         # https://mui.com/system/the-sx-prop/
 
         with mui.Card(key="editor", sx={"display": "flex", "flexDirection": "column"}):
 
-            # Aby sprawić, że nagłówek również jest przeciągalny, należy dodać do niego klasę  'draggable',
+            # Aby sprawić, że nagłówek również jest przeciągalny, należy dodać do niego klasę 'draggable',
             # podobnie jak to robiliśmy dla innych komponentów przy pomocy zmiennej draggableHandle.
 
             mui.CardHeader(title="Editor", className="draggable")
 
-            # Chcemy aby zawartość komponentu zajmowała całą dostępną wysokość dlatego ustawiamy parametr flex na 1
-            # Ponadto chcemy aby zawartość komponentu miminalizowła się kiedy komponent jest zmniejszany ustawiając parametr minHeight to 0.
+            # Chcemy, aby zawartość komponentu zajmowała całą dostępną wysokość, dlatego ustawiamy parametr flex na 1.
+            # Ponadto chcemy, aby zawartość komponentu minimalizowała się, kiedy komponent jest zmniejszany ustawiając parametr minHeight to 0.
 
             with mui.CardContent(sx={"flex": 1, "minHeight": 0}):
 
                 # Tutaj definiujemy nasz edytor kodu Monaco.
                 #
-                # Po pierwsze, ustawiamy domyslną treść edytora na to, co aktualnie znjaduje się w st.session_state.data
+                # Po pierwsze, ustawiamy domyślną treść edytora na to, co aktualnie znajduje się w st.session_state.data
                 # Po drugie, ustawiamy język edytora na JSON.
                 #
                 # Następnie chcemy pobrać zmiany dokonane w treści za pomocą edytora.
                 # Po sprawdzeniu dokumentacji Monaco dowiadujemy się, że istnieje właściwość o nazwie onChange, która przyjmuje funkcję.
                 #
-                # Ta funkcja jest wywoływana ilekroć dokonywana jest zmiana a zaktualizowana treść jest przekazywana jako pierwszy parametr 
+                # Ta funkcja jest wywoływana, ilekroć dokonywana jest zmiana, a zaktualizowana treść jest przekazywana jako pierwszy parametr 
                 # do naszej funkcji (zobacz: onChange: https://github.com/suren-atoyan/monaco-react#props)
                 #
                 # Biblioteka Streamlit Elements dostarcza specjalną funkcję sync(). Funkcja ta tworzy callback, który automatycznie przekazuje jej 
-                # parametry do stanu sesji Streamlita.
+                # parametry do stanu sesji.
                 #
                 # Przykłady
                 # --------
-                # Stwórzmy callback, który przekazuje swój pierwszy paramtr do stanu sesji, pod klucz o nazwie "data":
+                # Stwórzmy callback, który przekazuje swój pierwszy parametr do stanu sesji, pod klucz o nazwie "data":
                 # >>> editor.Monaco(onChange=sync("data"))
                 # >>> print(st.session_state.data)
                 #
@@ -154,11 +154,11 @@ with elements("przykład"):
                 # >>> print(st.session_state.data)
                 # >>> print(st.session_state.ev)
                 #
-                # Teraz pojawia się problem: onChange jest wywoływany za każdym razem kiedy zmienia się treść w edytorze.
-                # To znaczy, że za każdym razem, kiedy w edytorze zostanie wpisany jakikolwiek znak, cała aplikacja zostaje uruchomiona w całości
+                # Teraz pojawia się problem: onChange jest wywoływany za każdym razem, kiedy zmienia się treść w edytorze.
+                # To znaczy, że za każdym razem, kiedy w edytorze zostanie wpisany jakikolwiek znak, cała aplikacja zostaje uruchomiona w całości.
                 #
-                # Aby ominąć ten problem, musimy powiedzieć bibliotece Streamlit Elements aby czekała na inne zdarzenie
-                # (jak na przykład kliknięcie w przycisk) zanim wyśle nowe dane. Można to zrobić poprzez opakowanie naszego callbacku w funkcję lazy()
+                # Aby ominąć ten problem, musimy powiedzieć bibliotece Streamlit Elements, aby czekała na inne zdarzenie
+                # (jak na przykład kliknięcie przycisku), zanim wyśle nowe dane. Można to zrobić poprzez opakowanie naszego callbacku w funkcję lazy()
                 #
                 # Po więcej informacji na temat parametrów dostępnych w Monaco, zajrzy tutaj:
                 # https://github.com/suren-atoyan/monaco-react
@@ -172,7 +172,7 @@ with elements("przykład"):
 
             with mui.CardActions:
 
-                # Teraz kiedy nasz edytor ma "leniwy" callack przupisany do atrybutu onChange, to oznacza, że
+                # Teraz kiedy nasz edytor ma "leniwy" callback przypisany do atrybutu onChange, to oznacza, że
                 # nawet jeśli zmieni się treść w edytorze, Streamlit nie zostanie o tym powiadomiony od razu
                 # i nie nastąpi ponowne uruchomienie pythonowego skryptu na serwerze.
                 # W związku z tym potrzebujemy kolejnego zdarzenia, które zainicjuje aktualizację.
@@ -181,33 +181,33 @@ with elements("przykład"):
                 # Nasz nowy callback nie musi robić nic szczególnego. Możesz stworzyć pustą funkcję w Pythonie
                 # albo użyć funkcji sync() bez żadnych argumentów.
                 #
-                # Po dodaniu przycisku, za każdym razem kiedy na niego kliniemy wywoła się jego callback
+                # Po dodaniu przycisku, za każdym razem, kiedy go klikniemy, wywoła się jego callback
                 # i wszystkie inne "leniwe" callbacki również zostaną wywołane.
 
                 mui.Button("Zapisz zmiany", onClick=sync())
 
         # Drugi komponent, wykres Nivo Bump.
-        # Użyjemy tej samej konfiguracji flexboxa co przy pierwszym komponencie aby dostosować wysokość zawartości.
+        # Użyjemy tej samej konfiguracji flexboxa co przy pierwszym komponencie, aby dostosować wysokość zawartości.
 
         with mui.Card(key="chart", sx={"display": "flex", "flexDirection": "column"}):
 
-            # Aby sprawić, że nagłówek również jest przeciągalny, należy dodać do niego klasę  'draggable',
+            # Aby sprawić, że nagłówek również jest przeciągalny, należy dodać do niego klasę 'draggable',
             # podobnie jak to robiliśmy dla innych komponentów przy pomocy zmiennej draggableHandle.
 
             mui.CardHeader(title="Chart", className="draggable")
 
-            # Tak jak powyżej, chemy sprawić aby nasz komponent rozszrzał się i minimalizował kiedy użytkownik zmienia rozmiar komponentu
+            # Tak jak powyżej, chemy sprawić, aby nasz komponent rozszerzał się i minimalizował, kiedy użytkownik zmienia rozmiar komponentu
             # Robimy to, ustwiając parametr flex na 1 oraz parametr minHeight na 0.
 
             with mui.CardContent(sx={"flex": 1, "minHeight": 0}):
 
                 # To jest miejsce, w którym będziemy rysować nasz wykres.
                 #
-                # Na potrzeby tego ćwiczenia, możemy po prost zaadoptować przykład wzięty ze strony Novo i sprawić,
+                # Na potrzeby tego ćwiczenia, możemy po prostu zaadoptować przykład wzięty ze strony Novo i sprawić,
                 # że zadziała dobrze z biblioteką Streamlit Elements. Przykład, z którego korzystamy jest dostępny
                 # w zakładce 'code' tutaj: https://nivo.rocks/bump/
                 #
-                # Parametr 'data' przyjmuje słownik więc musimy przekształcić nasze dane ze stringa zawierającego dokument w formacie JSON
+                # Parametr 'data' przyjmuje słownik, więc musimy przekształcić nasze dane ze stringa zawierającego dokument w formacie JSON
                 # do słownika w Pythonie. Służy do tego funkcja `json.loads()`.
                 #
                 # Po więcej informacji na temat dostępnych wykresów Nivo, zajrzyj na:
@@ -261,7 +261,7 @@ with elements("przykład"):
             mui.CardHeader(title="Media Player", className="draggable")
             with mui.CardContent(sx={"flex": 1, "minHeight": 0}):
 
-                # Ten element jest stowrzony przy użyciu komponentu ReactPlayer, wspiera on również wiele innych odtwarzaczy, nie tylko YouTube.
+                # Ten element jest stworzony przy użyciu komponentu ReactPlayer, wspiera on również wiele innych odtwarzaczy, nie tylko YouTube.
                 # Możesz przeczytać o nim tutaj: https://github.com/cookpete/react-player#props
 
                 media.Player(url=media_url, width="100%", height="100%", controls=True)

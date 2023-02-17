@@ -1,10 +1,10 @@
 # Komponent streamlit-shap
 
-[`streamlit-shap`](https://github.com/snehankekre/streamlit-shap) jest komponentem Streamlita, który dostarcza integracji z wykresami biblioteki [SHAP](https://github.com/slundberg/shap). 
+[`streamlit-shap`](https://github.com/snehankekre/streamlit-shap) jest komponentem biblioteki Streamlit, który dostarcza integracji z wykresami biblioteki [SHAP](https://github.com/slundberg/shap). 
 
-Biblioteka jest rozwijana przez naszego kolegę [Snehana Kekre](https://github.com/snehankekre), który poza tym opiekuje się stroną [dokumentacji Streamlita](https://docs.streamlit.io/).
+Biblioteka jest rozwijana przez naszego kolegę [Snehana Kekre](https://github.com/snehankekre), który poza tym opiekuje się stroną [dokumentacji](https://docs.streamlit.io/).
 
-Przede wszystkim zainstaluj Streamlita (oczywistość!) a następnie bibliotekę  `streamlit-shap`:
+Przede wszystkim zainstaluj bibliotekę Streamlit (oczywistość!) a następnie bibliotekę  `streamlit-shap`:
 
 ```bash
 pip install streamlit
@@ -57,8 +57,8 @@ def load_model(X, y):
 st.title("Komponent `streamlit-shap` do wyświetlania wykresów SHAP w Streamlitowych aplikacjach")
 
 with st.expander('O aplikacji'):
-    st.markdown('''[`streamlit-shap`](https://github.com/snehankekre/streamlit-shap) jest komponentem Streamlita, który dostarcza integracji z wykresami biblioteki [SHAP](https://github.com/slundberg/shap). 
-                    Biblioteka jest rozwijana przez naszego kolegę [Snehana Kekre](https://github.com/snehankekre), który poza tym opiekuje się stroną [dokumentacji Streamlita](https://docs.streamlit.io/).
+    st.markdown('''[`streamlit-shap`](https://github.com/snehankekre/streamlit-shap) jest komponentem biblioteki Streamlit, który dostarcza integracji z wykresami biblioteki [SHAP](https://github.com/slundberg/shap). 
+                    Biblioteka jest rozwijana przez naszego kolegę [Snehana Kekre](https://github.com/snehankekre), który poza tym opiekuje się stroną [dokumentacji](https://docs.streamlit.io/).
                 ''')
 
 st.header('Dane wejściowe')
@@ -83,7 +83,7 @@ shap_values = explainer(X)
 
 with st.expander('Wykres w postaci wodospadu'):
     st_shap(shap.plots.waterfall(shap_values[0]), height=300)
-with st.expander('Wykres w postaci plasta miodu'):
+with st.expander('Wykres w postaci plastra miodu'):
     st_shap(shap.plots.beeswarm(shap_values), height=300)
 
 explainer = shap.TreeExplainer(model)
@@ -97,7 +97,7 @@ with st.expander('Wykres siłowy'):
 ```
 
 ## Wyjaśnienie działania, linijka po linijce
-Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację w Streamlicie jest zaimportowanie biblioteki streamlit jako st. Przyda nam się również kilka innych bibliotek.
+Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację jest zaimportowanie biblioteki streamlit jako st. Przyda nam się również kilka innych bibliotek.
 ```python
 import streamlit as st
 from streamlit_shap import st_shap
@@ -108,7 +108,7 @@ import numpy as np
 import pandas as pd
 ```
 
-Następnie zmienimy układ strony tak aby treść naszej aplikacji wypełniała całą jej szerokość.
+Następnie zmienimy układ strony tak, aby treść naszej aplikacji wypełniała całą jej szerokość.
 ```python
 st.set_page_config(layout="wide")
 ```
@@ -144,7 +144,7 @@ def load_model(X, y):
 Następnie podajemy tekst nagłówka aplikacji:
 
 ```python
-st.title("Komponent `streamlit-shap` do wyświetlania wykresów SHAP w Streamlitowych aplikacjach")
+st.title("Komponent `streamlit-shap` do wyświetlania wykresów SHAP w aplikacjach Streamlit")
 ```
 
 Wyświetlamy również informacje o aplikacji za pomocą polecenia `st.expander`:
@@ -152,8 +152,8 @@ Wyświetlamy również informacje o aplikacji za pomocą polecenia `st.expander`
 
 ```python
 with st.expander('O aplikacji'):
-    st.markdown('''[`streamlit-shap`](https://github.com/snehankekre/streamlit-shap) jest komponentem Streamlita, który dostarcza integracji z wykresami biblioteki [SHAP](https://github.com/slundberg/shap). 
-                    Biblioteka jest rozwijana przez naszego kolegę [Snehana Kekre](https://github.com/snehankekre), który poza tym opiekuje się stroną [dokumentacji Streamlita](https://docs.streamlit.io/).
+    st.markdown('''[`streamlit-shap`](https://github.com/snehankekre/streamlit-shap) jest komponentem biblioteki Streamlit, który dostarcza integracji z wykresami biblioteki [SHAP](https://github.com/slundberg/shap). 
+                    Biblioteka jest rozwijana przez naszego kolegę [Snehana Kekre](https://github.com/snehankekre), który poza tym opiekuje się stroną [dokumentacji](https://docs.streamlit.io/).
                 ''')
 ```
 
@@ -177,7 +177,7 @@ Następnie wyświetlamy nagłówek informujący o spodziewanych wynikach z bibli
 st.header('Wyniki')
 ```
 
-Potem budowany jest model XGboost. Zwraca go funkcja `load_model`, zaimplementowana powyżej:
+Potem budowany jest model XGBoost. Zwraca go funkcja `load_model`, zaimplementowana powyżej:
 
 ```python
 # trenowanie modelu XGBoost
@@ -196,11 +196,11 @@ shap_values = explainer(X)
 
 with st.expander('Wykres w postaci wodospadu'):
     st_shap(shap.plots.waterfall(shap_values[0]), height=300)
-with st.expander('Wykres w postaci plasta miodu'):
+with st.expander('Wykres w postaci plastra miodu'):
     st_shap(shap.plots.beeswarm(shap_values), height=300)
 ```
 
-Na koniec używamy drzewiastych algorytmów SHAP aby wyjaśnić wynik zwrócony przez nasz model. Można to zrobić przy użyciu obiektu typu `shap.TreeExplainer` oraz funkcji do wizualizacji o nazwie `shap.force_plot`.
+Na koniec używamy drzewiastych algorytmów SHAP, aby wyjaśnić wynik zwrócony przez nasz model. Można to zrobić przy użyciu obiektu typu `shap.TreeExplainer` oraz funkcji do wizualizacji o nazwie `shap.force_plot`.
 
 ```python
 explainer = shap.TreeExplainer(model)

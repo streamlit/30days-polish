@@ -12,11 +12,11 @@ Dekorowanie funkcji za pomocą `@st.cache` informuje bibliotekę Streamlit, że 
 4. Jakie było ciało innych funkcji wywoływanych wewnątrz buforowanej funkcji
 
 
-Jeśli Streamlit po raz pierwszy spotyka wywołanie funkcji z tymi konkretnymi wartościami tych czterch komponentów w tej dokładnej kombinacji i kolejności, to uruchamia funkcję i zapisuje jej wynik w pamięci podręcznej. Następnie, następnym razem, gdy buforowana funkcja zostanie wywołana, jeśli żaden z tych komponentów nie uległ zmianie, Streamlit całkowicie pominie wykonanie tej funkcji i zamiast tego zwróci jej wynik przechowywany w pamięci podręcznej.
+Jeśli Streamlit po raz pierwszy spotyka wywołanie funkcji z tymi konkretnymi wartościami tych czterech komponentów w tej dokładnej kombinacji i kolejności, to uruchamia funkcję i zapisuje jej wynik w pamięci podręcznej. Następnie, następnym razem, gdy buforowana funkcja zostanie wywołana, jeśli żaden z tych komponentów nie uległ zmianie, Streamlit całkowicie pominie wykonanie tej funkcji i zamiast tego zwróci jej wynik przechowywany w pamięci podręcznej.
 
-Streamlit używa hashowania aby śledzić opisane powyżej zmiany. Buforowanie można traktować jak słownik przechowujący klucze i wartości. Zawartością klucza jest funkcją skrótu wszystkich 4 komponentów natomiast wartością jest wynik działania funkcji przekazany przez referencję.
+Streamlit używa hashowania, aby śledzić opisane powyżej zmiany. Buforowanie można traktować jak słownik przechowujący klucze i wartości. Zawartością klucza jest funkcją skrótu wszystkich 4 komponentów, natomiast wartością jest wynik działania funkcji przekazany przez referencję.
 
-Na koniec warto zauważyć, że `@st.cache` może przyjmować dodatkowe argumenty aby skonfigurować sposób buforowania. Więcej informacji na ten temat można znaleźć w dokumentacji API.
+Na koniec warto zauważyć, że `@st.cache` może przyjmować dodatkowe argumenty, aby skonfigurować sposób buforowania. Więcej informacji na ten temat można znaleźć w dokumentacji API.
 
 ## Sposób użycia
 
@@ -71,7 +71,7 @@ st.info(b1-b0)
 ```
 
 ## Wyjaśnienie działania, linijka po linijce
-Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację w Streamlicie jest zaimportowanie biblioteki streamlit jako st. Przydadzą nam się również inne biblioteki.
+Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację jest zaimportowanie biblioteki streamlit jako st. Przydadzą nam się również inne biblioteki.
 
 ```python
 import streamlit as st

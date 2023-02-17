@@ -1,13 +1,13 @@
 # Polecenie st.write
 
-Polecenie `st.write` pozwala na wyświetlenie tekstu oraz innych treści bezpośrednio w aplikacji Streamlita. 
+Polecenie `st.write` pozwala na wyświetlenie tekstu oraz innych treści bezpośrednio w aplikacji. 
 
 
 Polecenie `st.write()` może być użyte do wyświetlenia następujących rzeczy:
 
 
 - Ciągów znaków (stringów); wtedy to polecenie działa podobnie do `st.markdown()`
-- Zawartości strukur słownikowych, `dict` w Pythonie
+- Zawartości struktur słownikowych, `dict` w Pythonie
 - Zawartości ramek danych z biblioteki `pandas` w postaci tabel
 - Wykresów/obrazów/grafik wygenerowanych przy użyciu bibliotek `matplotlib`, `plotly`, `altair`, `graphviz`, `bokeh`
 - Oraz więcej (sprawdź w [dokumentacji metody st.write](https://docs.streamlit.io/library/api-reference/write-magic/st.write))
@@ -24,7 +24,7 @@ Po uruchomieniu Twoja aplikacja powinna wyglądać mniej więcej jak ta tutaj:
 
 ## Kod
 
-Zobaczmy jak używać polecenia st.write:
+Zobaczmy, jak używać polecenia st.write:
 
 ```python
 import numpy as np
@@ -66,7 +66,7 @@ st.write(c)
 
 ## Wyjaśnienie działania, linijka po linijce
 
-Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację w Streamlicie jest zaimportowanie biblioteki `streamlit` jako `st` w ten sposób:
+Pierwszą rzeczą, jaką trzeba zrobić tworząc aplikację jest zaimportowanie biblioteki `streamlit` jako `st` w ten sposób:
 
 ```python
 import streamlit as st
@@ -79,7 +79,7 @@ st.header('Polecenie st.write')
 ```
 
 **Przykład 1**
-Podstawowym zastosowaniem jest wyświetanie tekstu, który może zawierać dodatkowe formatowanie (jako Markdown) i emoji:
+Podstawowym zastosowaniem jest wyświetlanie tekstu, który może zawierać dodatkowe formatowanie (jako Markdown) i emoji:
 
 ```python
 st.write('Witaj, *Świecie!* :sunglasses:')
@@ -93,7 +93,7 @@ st.write(1234)
 ```
 
 **Przykład 3**
-Ramki danych (DataFrames) również mogą być wyświetlne w następujący sposób:
+Ramki danych (DataFrames) również mogą być wyświetlone w następujący sposób:
 
 ```python
 df = pd.DataFrame({
@@ -124,13 +124,13 @@ st.write(c)
 
 ## Kolejne kroki
 
-Po stworzniu pierwszej streamlitowej aplikacji lokalnie, przyszedł czas na jej uruchomienie w [Społecznościowej Chmurze Streamlita](https://streamlit.io/cloud), co zostanie wyjaśnione w następnych wyzwaniach.
+Po stworzeniu pierwszej aplikacji lokalnie przyszedł czas na jej uruchomienie w [Społecznościowej Chmurze Streamlit](https://streamlit.io/cloud), co zostanie wyjaśnione w następnych wyzwaniach.
 
 Ponieważ jest to Twój pierwszy tydzień nauki, udostępniamy pełny kod (powyżej) wraz z rozwiązaniem (przykładową aplikacją) bezpośrednio na tej stronie internetowej.
 
-W kolejnych wyzwaniach, staraj się najpierw samodzielnie napisać kod aplikacji a potem porównać go z rozwiązaniem.
+W kolejnych wyzwaniach staraj się najpierw samodzielnie napisać kod aplikacji, a potem porównać go z rozwiązaniem.
 
-Nie martw się jeśli utkniesz, możesz zawsze sprawdzić oficjalne rozwiązanie ponieważ wszystkie prezentowane problemy mają dołączone rozwiązanie.
+Nie martw się, jeśli utkniesz, możesz zawsze sprawdzić oficjalne rozwiązanie, ponieważ wszystkie prezentowane problemy mają dołączone rozwiązanie.
 
 ## Zobacz też
 
