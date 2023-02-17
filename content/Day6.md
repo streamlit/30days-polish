@@ -8,14 +8,14 @@ Ponadto umieszczenie Twojej aplikacji w repozytorium GitHuba umożliwi jej wdro�
 
 ## Zarejestruj się na GitHubie
 
-Najpierw załóż własne konto na [GitHubie](https://github.com/). (Ilustracja 1)
+Najpierw załóż własne konto na [GitHubie](https://github.com/).
 
 ## Stwórz nowe repozytorium
 
 Aby utworzyć repozytorium GitHuba wykonaj następujące kroki:
-- Kliknij w ikonkę **"+"** w górnym prawym rogu. Powinno się pojawić rozwijane menu, wybierz z niego pozycję **"New repository"** (Ilustracja 2).
+- Kliknij w ikonkę **"+"** w górnym prawym rogu. Powinno się pojawić rozwijane menu, wybierz z niego pozycję **"New repository"** (Ilustracja 1).
 
-- To powinno otworzyć nową stronę o nazwie **"Create a new repository"**. W pole oznaczone **"Repository name"**, wpisz nazwę swojego repozytorium, np. `helloworld` (***Figure 2***).
+- To powinno otworzyć nową stronę o nazwie **"Create a new repository"**. W pole oznaczone **"Repository name"**, wpisz nazwę swojego repozytorium, np. `helloworld` (Ilustracja 2).
 
 - W polu o nazwie **"Initialize this repository with:"** zaznacz **"Add a README file"**.
 
