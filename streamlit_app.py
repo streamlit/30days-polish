@@ -15,7 +15,7 @@ with col2:
     st.image(Image.open('streamlit-logo-secondary-colormark-darktext.png'))
 st.markdown('# 30 dni ze Streamlitem po polsku 🎈')
 
-days_list = [f'Day {x}' for x in md_files]
+days_list = [f'Dzień {x}' for x in md_files]
 
 query_params = st.experimental_get_query_params()
 
@@ -58,7 +58,7 @@ st.sidebar.markdown('Dzięki [Społecznościowej Chmurze Streamlita](https://str
 for i in days_list:
     if selected_day == i:
         st.markdown(f'# 🗓️ {i}')
-        j = i.replace(' ', '')
+        j = i.replace('Dzień ', 'Day')
         with open(f'content/{j}.md', 'r') as f:
             st.markdown(f.read())
         if os.path.isfile(f'content/figures/{j}.csv') == True:
