@@ -1,8 +1,6 @@
 import streamlit as st
 import os
-import numpy as np
 import pandas as pd
-import urllib.request
 from PIL import Image
 import glob
 
@@ -15,41 +13,46 @@ md_files = sorted([int(x.strip('Day').strip('.md')) for x in glob.glob1('content
 col1, col2, col3 = st.columns((1,4,1))
 with col2:
     st.image(Image.open('streamlit-logo-secondary-colormark-darktext.png'))
-st.markdown('# 30 Days of Streamlit')
+st.markdown('# 30 dni ze Streamlitem po polsku 🎈')
 
-days_list = [f'Day {x}' for x in md_files]
+days_list = [f'Dzień {x}' for x in md_files]
 
 query_params = st.experimental_get_query_params()
 
 if query_params and query_params["challenge"][0] in days_list:
     st.session_state.day = query_params["challenge"][0]
 
-selected_day = st.selectbox('Start the Challenge 👇', days_list, key="day", on_change=update_params)
+selected_day = st.selectbox('Rozpocznij lekcję 👇', days_list, key="day", on_change=update_params)
 
-with st.expander("About the #30DaysOfStreamlit"):
-    st.markdown('''
-    The **#30DaysOfStreamlit** is a coding challenge designed to help you get started in building Streamlit apps.
+with st.expander("Przeczytaj więcej o inicjatywie #30DaysOfStreamlit"):
+    st.markdown('''**#30DaysOfStreamlit** to programistyczne wyzwanie, które pomoże Ci rozpocząć przygodę z 
+    tworzeniem aplikacji Streamlit.
+
     
-    Particularly, you'll be able to:
-    - Set up a coding environment for building Streamlit apps
-    - Build your first Streamlit app
-    - Learn about all the awesome input/output widgets to use for your Streamlit app
+    Przede wszystkim, nauczysz się:
+    - Jak skonfigurować środowisko do tworzenia aplikacji Streamlit 
+    - Jak zbudować swoją pierwszą aplikację
+    - W jaki sposób korzystać w wielu niesamowitych widżetów, które pomogą Ci zbudować interaktywną aplikację
     ''')
 
 # Sidebar
-st.sidebar.header('About')
-st.sidebar.markdown('[Streamlit](https://streamlit.io) is a Python library that allows the creation of interactive, data-driven web applications in Python.')
+st.sidebar.header('O Streamlicie')
+st.sidebar.markdown('[Streamlit](https://streamlit.io) jest biblioteką Pythona, która umożliwia tworzenie '
+                    'interaktywnych aplikacji internetowych opartych na danych. '
+                    'Aplikacje tworzysz wyłącznie z użyciem Pythona i bez konieczności używania innych technologii,'
+                    ' takich jak JavaScript, HTML, CSS.')
 
-st.sidebar.header('Resources')
+st.sidebar.header('Zobacz też (materiały po angielsku)')
 st.sidebar.markdown('''
-- [Streamlit Documentation](https://docs.streamlit.io/)
-- [Cheat sheet](https://docs.streamlit.io/library/cheatsheet)
-- [Book](https://www.amazon.com/dp/180056550X) (Getting Started with Streamlit for Data Science)
-- [Blog](https://blog.streamlit.io/how-to-master-streamlit-for-data-science/) (How to master Streamlit for data science)
+- [Dokumentacja Streamlita](https://docs.streamlit.io/)
+- [Ściągawka](https://docs.streamlit.io/library/cheatsheet)
+- [Książka](https://www.amazon.com/dp/180056550X) (Pierwsze kroki ze Streamlitem w przetwarzaniu danych)
+- [Blog](https://blog.streamlit.io/how-to-master-streamlit-for-data-science/) (Jak opanować Streamlita do analizy danych)
 ''')
 
-st.sidebar.header('Deploy')
-st.sidebar.markdown('You can quickly deploy Streamlit apps using [Streamlit Community Cloud](https://streamlit.io/cloud) in just a few clicks.')
+st.sidebar.header('Wdrażanie')
+st.sidebar.markdown('Dzięki [Społecznościowej Chmurze Streamlita](https://streamlit.io/cloud) możesz szybko wdrożyć '
+                    'swoją aplikację za pomocą kilku kliknięć.')
 
 # Display content
 for i in days_list:
@@ -60,7 +63,7 @@ for i in days_list:
             st.markdown(f.read())
         if os.path.isfile(f'content/figures/{j}.csv') == True:
             st.markdown('---')
-            st.markdown('### Figures')
+            st.markdown('### Ilustracje')
             df = pd.read_csv(f'content/figures/{j}.csv', engine='python')
             for i in range(len(df)):
                 st.image(f'content/images/{df.img[i]}')
