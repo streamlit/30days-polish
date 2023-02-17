@@ -15,7 +15,7 @@ with col2:
     st.image(Image.open('streamlit-logo-secondary-colormark-darktext.png'))
 st.markdown('# 30 dni ze Streamlitem po polsku 🎈')
 
-days_list = [f'Dzień {x}' for x in md_files]
+days_list = [f'Day {x}' for x in md_files]
 
 query_params = st.experimental_get_query_params()
 
