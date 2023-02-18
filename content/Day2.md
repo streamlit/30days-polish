@@ -10,7 +10,7 @@ Następnie, używając swojego ulubionego edytora, stwórz plik tekstowy o nazwi
 
 Wprowadź następujący kod do Twojego nowego pliku:
 
-```
+```python
 import streamlit as st
 
 st.write('Witaj świecie!')
@@ -22,7 +22,7 @@ Zapisz swoje zmiany w pliku.
 
 Wpisz w terminalu następujące polecenie:
 
-```
+```bash
 streamlit run streamlit_app.py
 ```
 
